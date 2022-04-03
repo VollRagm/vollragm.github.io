@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-04T00:14:42+02:00</updated>
+  <updated>2022-04-04T00:50:00+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,46 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>PTView - Browse Page Tables on Windows</title>
+    <link href="http://localhost:4000/posts/PTView/" rel="alternate" type="text/html" title="PTView - Browse Page Tables on Windows" />
+    <published>2022-04-04T00:39:00+02:00</published>
+  
+    <updated>2022-04-04T00:39:00+02:00</updated>
+  
+    <id>http://localhost:4000/posts/PTView/</id>
+    <content src="http://localhost:4000/posts/PTView/" />
+    <author>
+      <name>VollRagm</name>
+    </author>
+
+  
+    
+    <category term="Kernel Development" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Introduction
+
+Page Tables can be a complicated concept to understand.
+This is why I created PTView. You can use this tool to visualize page tables and be able to browse them.
+
+It allows you to inspect a Windows processes Page Tables live.
+You can browse through them in a GUI and dump the physical pages they point to, as well as translate virtual to physical addresses and get the virtual address...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
