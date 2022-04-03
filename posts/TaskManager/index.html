@@ -39,24 +39,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="KernelSharp - Write Kernel Drivers in C#" />
+<meta property="og:title" content="Reverse engineering Task Manager" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Introduction In the past, people asked me if it was possible to write a kernel-mode Driver for Windows in C#. Now, you might be thinking that something like this would be totally foolish and serve no purpose. Let me tell you one thing: You are totally right about that. But after getting asked this question multiple times, I have decided to make it possible." />
-<meta property="og:description" content="Introduction In the past, people asked me if it was possible to write a kernel-mode Driver for Windows in C#. Now, you might be thinking that something like this would be totally foolish and serve no purpose. Let me tell you one thing: You are totally right about that. But after getting asked this question multiple times, I have decided to make it possible." />
-<link rel="canonical" href="http://localhost:4000/posts/KernelSharp/" />
-<meta property="og:url" content="http://localhost:4000/posts/KernelSharp/" />
+<meta name="description" content="Introduction Some time ago I spent some time reversing Task Manager for fun and practice. I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering." />
+<meta property="og:description" content="Introduction Some time ago I spent some time reversing Task Manager for fun and practice. I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering." />
+<link rel="canonical" href="http://localhost:4000/posts/TaskManager/" />
+<meta property="og:url" content="http://localhost:4000/posts/TaskManager/" />
 <meta property="og:site_name" content="VollRagm" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-04-03T23:00:00+02:00" />
+<meta property="article:published_time" content="2022-04-04T00:39:00+02:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="KernelSharp - Write Kernel Drivers in C#" />
+<meta property="twitter:title" content="Reverse engineering Task Manager" />
 <meta name="twitter:site" content="@vollragm" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-03T23:00:00+02:00","datePublished":"2022-04-03T23:00:00+02:00","description":"Introduction In the past, people asked me if it was possible to write a kernel-mode Driver for Windows in C#. Now, you might be thinking that something like this would be totally foolish and serve no purpose. Let me tell you one thing: You are totally right about that. But after getting asked this question multiple times, I have decided to make it possible.","headline":"KernelSharp - Write Kernel Drivers in C#","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/KernelSharp/"},"url":"http://localhost:4000/posts/KernelSharp/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-04T00:39:00+02:00","datePublished":"2022-04-04T00:39:00+02:00","description":"Introduction Some time ago I spent some time reversing Task Manager for fun and practice. I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering.","headline":"Reverse engineering Task Manager","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/TaskManager/"},"url":"http://localhost:4000/posts/TaskManager/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>KernelSharp - Write Kernel Drivers in C# | VollRagm
+  <title>Reverse engineering Task Manager | VollRagm
   </title>
 
   <!--
@@ -289,7 +289,7 @@
         
 
           
-            <span>KernelSharp - Write Kernel Drivers in C#</span>
+            <span>Reverse engineering Task Manager</span>
           
 
         
@@ -372,6 +372,233 @@
 
 
 
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+
+    
+      
+
+      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+
+      
+
+    
+
+    <!-- Add SVG placehoder to prevent layout reflow -->
+
+    
+
+    <!-- Bypass the HTML-proofer test -->
+    
+
+    
+
+  
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+
+    
+      
+
+      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+
+      
+
+    
+
+    <!-- Add SVG placehoder to prevent layout reflow -->
+
+    
+
+    <!-- Bypass the HTML-proofer test -->
+    
+
+    
+
+  
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+
+    
+      
+
+      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+
+      
+
+    
+
+    <!-- Add SVG placehoder to prevent layout reflow -->
+
+    
+
+    <!-- Bypass the HTML-proofer test -->
+    
+
+    
+
+  
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+
+    
+      
+
+      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+
+      
+
+    
+
+    <!-- Add SVG placehoder to prevent layout reflow -->
+
+    
+
+    <!-- Bypass the HTML-proofer test -->
+    
+
+    
+
+  
+
+  
+
+
 
 <!-- Add header for code snippets -->
 
@@ -394,30 +621,6 @@
       
         
         
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
       
 
       
@@ -505,7 +708,7 @@
 
 
 
-<h1 data-toc-skip>KernelSharp - Write Kernel Drivers in C#</h1>
+<h1 data-toc-skip>Reverse engineering Task Manager</h1>
 
 <div class="post-meta text-muted">
 
@@ -535,12 +738,12 @@
 -->
 
 <em class="timeago"
-    data-ts="1649019600"
+    data-ts="1649025540"
     
       data-toggle="tooltip" data-placement="bottom" data-tooltip-df="llll"
     
     >
-  2022-04-03
+  2022-04-04
 </em>
 
       </span>
@@ -568,8 +771,8 @@
 
 <!-- return element -->
 <span class="readtime" data-toggle="tooltip" data-placement="bottom"
-  title="859 words">
-  <em>4 min</em> read</span>
+  title="394 words">
+  <em>2 min</em> read</span>
 
 
       <!-- page views -->
@@ -582,95 +785,37 @@
 
 <div class="post-content">
   <h1 id="introduction">Introduction</h1>
-<p>In the past, people asked me if it was possible to write a kernel-mode Driver for Windows in C#.<br />
-Now, you might be thinking that something like this would be totally foolish and serve no purpose.<br />
-Let me tell you one thing: You are totally right about that.<br />
-But after getting asked this question multiple times, I have decided to make it possible.</p>
+<p>Some time ago I spent some time reversing Task Manager for fun and practice.
+I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering.</p>
 
-<h2 id="net-in-kernel-mode"><span class="mr-2">.NET in Kernel-mode?</span><a href="#net-in-kernel-mode" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-<p>There are several reasons, why the .NET Runtime is not really able to run in kernel-mode, in fact, there are too many to list them all.<br />
-The biggest reason, besides its memory management, is the Just-in-time compiler. The runtime compiles the code from MSIL to native code while the program runs. There are a lot of ways in which this could go wrong in kernel mode. As an example, you would never be able to make an <a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/driversecurity/use-device-guard-readiness-tool">HVCI-compatible driver</a> because the native code would have to be written to the heap.<br />
-However, this is where NativeAOT comes into play.</p>
+<h2 id="the-performance-tab"><span class="mr-2">The Performance Tab</span><a href="#the-performance-tab" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+<p>At first, I took a look at the Performance tab, because it seemed like an obvious thing to do since I can easily scan for the counter of running processes, threads, and open handles. It was an easy task doing a 4 Byte search for those using Cheat Engine
+<img data-src="https://i.imgur.com/MUwnQ44.png" alt="" data-proofer-ignore>
+Those 3 values are stored as global variables.</p>
 
-<h2 id="nativeaot"><span class="mr-2">NativeAOT</span><a href="#nativeaot" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-<p><a href="https://github.com/dotnet/runtimelab/tree/feature/NativeAOT">NativeAOT</a> is an experimental fork of the .NET Runtime. At the time of writing it is planned to be moved into mainline development in .NET 7. NativeAOT allows us to compile our C# programs to a native binary ahead of time.<br />
-It works by taking the intermediate code, transpiling it to native code, and outputting an object file, which can be linked afterward. This compiler is included in the Microsoft.DotNet.ILCompiler package.
-Follow the <a href="https://github.com/dotnet/runtimelab/blob/feature/NativeAOT/docs/using-nativeaot/compiling.md">NativeAOT quick start guide</a> if you want to create your own project.</p>
+<h2 id="cpu-usage-graph"><span class="mr-2">CPU Usage Graph</span><a href="#cpu-usage-graph" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+<p>After that, I was interested in playing around with the CPU usage graphs. I scanned for the current CPU load percentage using the double data type and found one address. Then I looked up what writes to it and jumped to that instruction in IDA.</p>
 
-<h2 id="developing-a-driver"><span class="mr-2">Developing a Driver</span><a href="#developing-a-driver" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-<p>If you want to follow along, feel free to clone the <a href="https://github.com/VollRagm/KernelSharp/">KernelSharp</a> repository, because it basically is ready to compile already.</p>
+<p><img data-src="https://i.imgur.com/y8JA0Rb.png" alt="" data-proofer-ignore></p>
 
-<p>Since we will be going down into kernel mode, we cannot have .NET libraries with us. Simple classes like <code class="language-plaintext highlighter-rouge">System.String</code> already require dynamic memory allocation and other routines that are not available in kernel mode in the same way.
-This is why we have to strip all standard libraries with <code class="language-plaintext highlighter-rouge">&lt;NoStdLib&gt;true&lt;/NoStdLib&gt;</code> in the <code class="language-plaintext filepath highlighter-rouge">.csproj</code> file. In order to still have the basic datatypes with their basic functionality, we have to <a href="https://github.com/VollRagm/KernelSharp/blob/main/KernelSharp/Runtime/System.cs">define them ourselves</a>. Thankfully this part has been done by <a href="https://github.com/MichalStrehovsky/zerosharp">Michal Strehovsky</a> for EFI boot applications already. I also recommend enabling unsafe code, because at some point we will be forced to work with pointers.</p>
+<p><code class="language-plaintext highlighter-rouge">CvSetData</code> is an OpenCV function to set graph data. <code class="language-plaintext highlighter-rouge">CvSetDataParemeter</code> is the actual value to be set, it comes right after <code class="language-plaintext highlighter-rouge">v39</code> on the stack, so <code class="language-plaintext highlighter-rouge">v39</code> actually is a struct getting passed in, at least that is my assumption. You can see that the CPU Load value is multiplied by the <code class="language-plaintext highlighter-rouge">GraphValueAmplitude</code>. I set a breakpoint there and noticed that its address is static: <code class="language-plaintext highlighter-rouge">taskmgr.exe + 0xC0748 + 0x8</code></p>
 
-<p>With all of that setup, we can write a simple driver.</p>
-<div class="language-cs highlighter-rouge"><div class="code-header">
-        <span data-label-text="C#"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="k">static</span> <span class="kt">uint</span> <span class="nf">DriverEntry</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="m">0x0</span><span class="p">;</span> <span class="c1">//STATUS_SUCCESS</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></div></div>
-<p>However, currently, there is no way to call any kernel-mode API. This part is crucial, otherwise, we would be pretty limited.<br />
-Normally we would use the <code class="language-plaintext highlighter-rouge">DllImport</code> attribute to import native functions from other modules into our C# code, however, that is not available here. We have to use the <code class="language-plaintext highlighter-rouge">RuntimeImport</code> attribute, which we once again have to <a href="https://github.com/VollRagm/KernelSharp/blob/main/KernelSharp/Runtime/Runtime.cs">implement it</a> first since all standard libraries have been stripped.
-After implementing the <code class="language-plaintext highlighter-rouge">MethodImpl</code> attribute as well, we can now import functions from ntoskrnl.</p>
-<div class="language-cs highlighter-rouge"><div class="code-header">
-        <span data-label-text="C#"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="p">[</span><span class="nf">MethodImpl</span><span class="p">(</span><span class="n">MethodImplOptions</span><span class="p">.</span><span class="n">InternalCall</span><span class="p">)]</span>
-<span class="p">[</span><span class="nf">RuntimeImport</span><span class="p">(</span><span class="s">"ntoskrnl.exe"</span><span class="p">,</span> <span class="s">"ExAllocatePool"</span><span class="p">)]</span>
-<span class="k">public</span> <span class="k">static</span> <span class="k">extern</span> <span class="n">PVOID</span> <span class="nf">ExAllocatePool</span><span class="p">(</span><span class="n">PoolType</span> <span class="n">poolType</span><span class="p">,</span> <span class="kt">ulong</span> <span class="n">size</span><span class="p">);</span>
-</pre></td></tr></tbody></table></code></div></div>
-<p>The code above is from my libraries <a href="https://github.com/VollRagm/KernelSharp/blob/main/KernelSharp/WDK.cs">WDK class</a>. I have imported a lot of useful ntoskrnl functions there and defined some datatypes like <code class="language-plaintext highlighter-rouge">PVOID</code> and <code class="language-plaintext highlighter-rouge">PEPROCESS</code>.
-I even implemented <code class="language-plaintext highlighter-rouge">__readcr3</code> using a dirty workaround since the compiler does not support intrinsics yet.</p>
-<div class="language-cs highlighter-rouge"><div class="code-header">
-        <span data-label-text="C#"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="k">static</span> <span class="kt">ulong</span> <span class="nf">__readcr3</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="k">void</span><span class="p">*</span> <span class="n">buffer</span> <span class="p">=</span> <span class="k">stackalloc</span> <span class="kt">byte</span><span class="p">[</span><span class="m">0x5C0</span><span class="p">];</span>
-    <span class="kt">var</span> <span class="n">sat</span> <span class="p">=</span> <span class="nf">KeSaveStateForHibernate</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span> <span class="c1">// saves CPU context into buffer</span>
-    <span class="kt">ulong</span> <span class="n">cr3</span> <span class="p">=</span> <span class="p">*(</span><span class="kt">ulong</span><span class="p">*)((</span><span class="kt">ulong</span><span class="p">)</span><span class="n">buffer</span> <span class="p">+</span> <span class="m">0x10</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">cr3</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></div></div>
+<p>Its data type is double, the default value is 1. If I set it to 100 all CPU cores will appear as if they were on full load.</p>
 
-<h2 id="compiling-the-driver"><span class="mr-2">Compiling the Driver</span><a href="#compiling-the-driver" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-<p>The <a href="https://github.com/VollRagm/KernelSharp/blob/main/KernelSharp/build.bat">build script</a> in my repository basically only does 3 simple things:</p>
-<ul>
-  <li>Compile all C# classes to MSIL</li>
-  <li>Compile MSIL binary to a native object file using the experimental compiler</li>
-  <li>Link the object file together with ntoskrnl.lib to a .sys file</li>
-</ul>
+<p><img data-src="https://i.imgur.com/bK249FV.png" alt="" data-proofer-ignore></p>
 
-<h2 id="limitations"><span class="mr-2">Limitations</span><a href="#limitations" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-<p>While creating this project, I have come across a few limitations.</p>
-<ul>
-  <li><strong>No support for variadic arguments</strong><br />
-By default, C# already only supports passing variadic arguments to native functions using the undocumented <code class="language-plaintext highlighter-rouge">__arglist</code>. In this case, it seems not to be possible at all, which can make calling functions like <code class="language-plaintext highlighter-rouge">DbgPrint</code> a bit annoying, since you can only pass a fixed amount of arguments.</li>
-  <li><strong>Strings always get stored as Wide-strings by the compiler</strong><br />
-This is annoying when you need to pass a normal <code class="language-plaintext highlighter-rouge">char*</code> to a function. In those cases you have to <a href="https://github.com/VollRagm/KernelSharp/blob/743fa03e35ed98bac46bf9200d80762016cd908d/KernelSharp/WDK.cs#L110">convert</a> the string to a <code class="language-plaintext highlighter-rouge">char*</code> first.
-However, <a href="https://twitter.com/MStrehovsky">Michal Strehovsky</a> pointed out that there is a <a href="https://twitter.com/MStrehovsky/status/1350448409300389889">String Literal Generator</a> for UTF-8 strings on Twitter DMs.</li>
-  <li><strong>Global strings misplaced</strong><br />
-I am not entirely sure if this was not an edge case, but when referencing a globally defined string in my code the driver would bugcheck, because the compiler somehow did not place the string at the correct place in memory. I haven’t debugged this any further though and it works when writing the strings inside of the method bodies.</li>
-</ul>
+<h2 id="manipulating-the-timer"><span class="mr-2">Manipulating the Timer</span><a href="#manipulating-the-timer" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+<p>The last thing I wanted to manipulate, was the update timer. I did a 4 Bytes scan for an unknown value in CheatEngine. Then changed the update speed in Task Manager and rescanned for increased/decreased values. I quickly found the current delay set by the Timer, but it was read-only. I looked up what writes to it and threw that into IDA.<br />
+<img data-src="https://i.imgur.com/mrqE9yp.png" alt="" data-proofer-ignore></p>
+
+<p>The delay values are hardcoded. Here is the address of the fastest value: <code class="language-plaintext highlighter-rouge">taskmgr.exe + 0x33F3A</code></p>
+
+<p>If you write 20 milliseconds to that address and then choose the “Fast” update speed in Task Manager you will see Task Manager refreshing all values rapidly.</p>
+<div style="width: 100%; height: auto; position: relative; padding-bottom: 56.250%;"><iframe src="https://streamable.com/e/w0zln2" frameborder="0" width="100%" height="100%" allowfullscreen="" style="width: 100%; height: 100%; position: absolute;"></iframe></div>
 
 <h2 id="conclusion"><span class="mr-2">Conclusion</span><a href="#conclusion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-<p>This is a very experimental project and I don’t recommend doing this.
-The only purpose of this project is to prove that kernel drivers are possible in C# and that C# native compilation is around the corner.<br />
-If you want to see an example of this library being used, check out my <a href="https://github.com/VollRagm/KernelBypassSharp">KernelBypassSharp</a> repository.</p>
+
+<p>I hope you gained some knowledge from this post. I also hope I was able to raise your interest in reverse engineering if you are a beginner.</p>
 
 </div>
 
@@ -681,7 +826,7 @@ If you want to see an example of this library being used, check out my <a href="
   <div class="post-meta mb-3">
     <i class="far fa-folder-open fa-fw mr-1"></i>
     
-      <a href='/categories/kernel-development/'>Kernel Development</a>
+      <a href='/categories/reverse-engineering/'>Reverse Engineering</a>
   </div>
   
 
@@ -696,11 +841,8 @@ If you want to see an example of this library being used, check out my <a href="
       <a href="/tags/windows/"
           class="post-tag no-text-decoration" >windows</a>
       
-      <a href="/tags/kernel/"
-          class="post-tag no-text-decoration" >kernel</a>
-      
-      <a href="/tags/net/"
-          class="post-tag no-text-decoration" >.net</a>
+      <a href="/tags/reversing/"
+          class="post-tag no-text-decoration" >reversing</a>
       
   </div>
   
@@ -734,19 +876,19 @@ If you want to see an example of this library being used, check out my <a href="
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=KernelSharp - Write Kernel Drivers in C# - VollRagm&amp;url=http://localhost:4000/posts/KernelSharp/" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=Reverse engineering Task Manager - VollRagm&amp;url=http://localhost:4000/posts/TaskManager/" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=KernelSharp - Write Kernel Drivers in C# - VollRagm&amp;u=http://localhost:4000/posts/KernelSharp/" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=Reverse engineering Task Manager - VollRagm&amp;u=http://localhost:4000/posts/TaskManager/" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http://localhost:4000/posts/KernelSharp/&amp;text=KernelSharp - Write Kernel Drivers in C# - VollRagm" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http://localhost:4000/posts/TaskManager/&amp;text=Reverse engineering Task Manager - VollRagm" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -988,33 +1130,33 @@ If you want to see an example of this library being used, check out my <a href="
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
 
 
 
@@ -1029,9 +1171,6 @@ If you want to see an example of this library being used, check out my <a href="
   
     
     
-      
-      
-    
   
     
     
@@ -1040,6 +1179,9 @@ If you want to see an example of this library being used, check out my <a href="
     
   
     
+    
+      
+      
     
   
 
@@ -1051,6 +1193,41 @@ If you want to see an example of this library being used, check out my <a href="
     <h3 class="pt-2 mt-1 mb-4 ml-1"
       data-toc-skip>Further Reading</h3>
     <div class="card-deck mb-4">
+    
+      
+      
+      <div class="card">
+        <a href="/posts/KernelSharp/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/timeago.js
+-->
+
+<em class="timeago small"
+    data-ts="1649019600"
+    
+    >
+  2022-04-03
+</em>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>KernelSharp - Write Kernel Drivers in C#</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                Introduction
+In the past, people asked me if it was possible to write a kernel-mode Driver for Windows in C#.
+Now, you might be thinking that something like this would be totally foolish and serve ...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
     
       
       
@@ -1090,41 +1267,6 @@ It allows you to insp...
         </a>
       </div>
     
-      
-      
-      <div class="card">
-        <a href="/posts/TaskManager/">
-          <div class="card-body">
-            <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/timeago.js
--->
-
-<em class="timeago small"
-    data-ts="1649025540"
-    
-    >
-  2022-04-04
-</em>
-
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Reverse engineering Task Manager</h3>
-            <div class="text-muted small">
-              <p>
-                
-
-
-
-
-
-                Introduction
-Some time ago I spent some time reversing Task Manager for fun and practice.
-I will share my findings in this blog post. Note that most of the things in this post might not be interest...
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-    
     </div> <!-- .card-deck -->
   </div> <!-- #related-posts -->
 
@@ -1137,17 +1279,17 @@ I will share my findings in this blog post. Note that most of the things in this
 
 <div class="post-navigation d-flex justify-content-between">
   
-  <span class="btn btn-outline-primary disabled"
+  <a href="/posts/PTView/" class="btn btn-outline-primary"
     prompt="Older">
-    <p>-</p>
-  </span>
+    <p>PTView - Browse Page Tables on Windows</p>
+  </a>
   
 
   
-  <a href="/posts/PTView/" class="btn btn-outline-primary"
+  <span class="btn btn-outline-primary disabled"
     prompt="Newer">
-    <p>PTView - Browse Page Tables on Windows</p>
-  </a>
+    <p>-</p>
+  </span>
   
 
 </div>

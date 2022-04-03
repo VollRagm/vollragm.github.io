@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-04T00:50:00+02:00</updated>
+  <updated>2022-04-04T01:27:55+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,45 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Reverse engineering Task Manager</title>
+    <link href="http://localhost:4000/posts/TaskManager/" rel="alternate" type="text/html" title="Reverse engineering Task Manager" />
+    <published>2022-04-04T00:39:00+02:00</published>
+  
+    <updated>2022-04-04T00:39:00+02:00</updated>
+  
+    <id>http://localhost:4000/posts/TaskManager/</id>
+    <content src="http://localhost:4000/posts/TaskManager/" />
+    <author>
+      <name>VollRagm</name>
+    </author>
+
+  
+    
+    <category term="Reverse Engineering" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Introduction
+Some time ago I spent some time reversing Task Manager for fun and practice.
+I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering.
+
+The Performance Tab
+At first, I took a look at the Performance tab, because it seemed like an obvious t...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>

@@ -1,6 +1,21 @@
 [
   
   {
+    "title": "Reverse engineering Task Manager",
+    "url": "/posts/TaskManager/",
+    "categories": "Reverse Engineering",
+    "tags": "native, windows, reversing",
+    "date": "2022-04-04 00:39:00 +0200",
+    
+
+
+
+
+
+    "snippet": "IntroductionSome time ago I spent some time reversing Task Manager for fun and practice.I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering.The Performance TabAt first, I took a look at the Performance tab, because it seemed like an obvious thing to do since I can easily scan for the counter of running processes, threads, and open handles. It was an easy task doing a 4 Byte search for those using Cheat EngineThose 3 values are stored as global variables.CPU Usage GraphAfter that, I was interested in playing around with the CPU usage graphs. I scanned for the current CPU load percentage using the double data type and found one address. Then I looked up what writes to it and jumped to that instruction in IDA.CvSetData is an OpenCV function to set graph data. CvSetDataParemeter is the actual value to be set, it comes right after v39 on the stack, so v39 actually is a struct getting passed in, at least that is my assumption. You can see that the CPU Load value is multiplied by the GraphValueAmplitude. I set a breakpoint there and noticed that its address is static: taskmgr.exe + 0xC0748 + 0x8Its data type is double, the default value is 1. If I set it to 100 all CPU cores will appear as if they were on full load.Manipulating the TimerThe last thing I wanted to manipulate, was the update timer. I did a 4 Bytes scan for an unknown value in CheatEngine. Then changed the update speed in Task Manager and rescanned for increased/decreased values. I quickly found the current delay set by the Timer, but it was read-only. I looked up what writes to it and threw that into IDA.The delay values are hardcoded. Here is the address of the fastest value: taskmgr.exe + 0x33F3AIf you write 20 milliseconds to that address and then choose the “Fast” update speed in Task Manager you will see Task Manager refreshing all values rapidly.ConclusionI hope you gained some knowledge from this post. I also hope I was able to raise your interest in reverse engineering if you are a beginner."
+  },
+  
+  {
     "title": "PTView - Browse Page Tables on Windows",
     "url": "/posts/PTView/",
     "categories": "Kernel Development",
