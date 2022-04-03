@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-03T22:45:09+02:00</updated>
+  <updated>2022-04-04T00:14:42+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,47 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>KernelSharp - Write Kernel Drivers in C#</title>
+    <link href="http://localhost:4000/posts/KernelSharp/" rel="alternate" type="text/html" title="KernelSharp - Write Kernel Drivers in C#" />
+    <published>2022-04-03T23:00:00+02:00</published>
+  
+    <updated>2022-04-03T23:00:00+02:00</updated>
+  
+    <id>http://localhost:4000/posts/KernelSharp/</id>
+    <content src="http://localhost:4000/posts/KernelSharp/" />
+    <author>
+      <name>VollRagm</name>
+    </author>
+
+  
+    
+    <category term="Kernel Development" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Introduction
+In the past, people asked me if it was possible to write a kernel-mode Driver for Windows in C#.
+Now, you might be thinking that something like this would be totally foolish and serve no purpose.
+Let me tell you one thing: You are totally right about that.
+But after getting asked this question multiple times, I have decided to make it possible.
+
+.NET in Kernel-mode?
+There are sever...
+    </summary>
+  
+
+  </entry>
 
 </feed>
 
