@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-04T02:13:38+02:00</updated>
+  <updated>2022-04-04T02:17:14+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,42 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Reverse engineering a Web API</title>
+    <link href="http://localhost:4000/posts/WebAPI/" rel="alternate" type="text/html" title="Reverse engineering a Web API" />
+    <published>2022-04-04T01:34:00+02:00</published>
+  
+    <updated>2022-04-04T01:34:00+02:00</updated>
+  
+    <id>http://localhost:4000/posts/WebAPI/</id>
+    <content src="http://localhost:4000/posts/WebAPI/" />
+    <author>
+      <name>VollRagm</name>
+    </author>
+
+  
+    
+    <category term="Reverse Engineering" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Introduction
+Most websites or web services have an API in the backend that delivers requested data to its frontend. This can be anything from the Google Search API to delivering a message on Discord.
+Some people in the gaming community scan a game’s username database for certain available special names, like 3 letter names, to register them. I’ve been asked to write a tool to automate that. To ...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -92,42 +128,6 @@ This is why I created PTView. You can use this tool to visualize page tables and
 
 It allows you to inspect a Windows processes Page Tables live.
 You can browse through them in a GUI and dump the physical pages they point to, as well as translate virtual to physical addresses and get the virtual address...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Reverse engineering a Web API</title>
-    <link href="http://localhost:4000/posts/WebAPI/" rel="alternate" type="text/html" title="Reverse engineering a Web API" />
-    <published>2022-04-04T00:39:00+02:00</published>
-  
-    <updated>2022-04-04T00:39:00+02:00</updated>
-  
-    <id>http://localhost:4000/posts/WebAPI/</id>
-    <content src="http://localhost:4000/posts/WebAPI/" />
-    <author>
-      <name>VollRagm</name>
-    </author>
-
-  
-    
-    <category term="Reverse Engineering" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Introduction
-Most websites or web services have an API in the backend that delivers requested data to its frontend. This can be anything from the Google Search API to delivering a message on Discord.
-Some people in the gaming community scan a game’s username database for certain available special names, like 3 letter names, to register them. I’ve been asked to write a tool to automate that. To ...
     </summary>
   
 
