@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-04T02:36:56+02:00</updated>
+  <updated>2022-04-04T23:18:23+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,48 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Reverse Engineering Windows 7 Minesweeper</title>
+    <link href="http://localhost:4000/posts/Minesweeper/" rel="alternate" type="text/html" title="Reverse Engineering Windows 7 Minesweeper" />
+    <published>2022-04-04T22:23:23+02:00</published>
+  
+    <updated>2022-04-04T22:23:23+02:00</updated>
+  
+    <id>http://localhost:4000/posts/Minesweeper/</id>
+    <content src="http://localhost:4000/posts/Minesweeper/" />
+    <author>
+      <name>VollRagm</name>
+    </author>
+
+  
+    
+    <category term="Reverse Engineering" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Introduction
+
+This blog post is about how to approach reverse engineering using the Windows 7 version of Minesweeper as an example. You can get the Windows 7 Minesweeper from https://win7games.com/.
+
+I have created a trainer and a CheatEngine cheat table as well. You can find it here.
+
+This post is written for beginners, however, I recommend having the following already:
+
+  Basic understanding ...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
