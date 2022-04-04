@@ -39,24 +39,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Reverse engineering Task Manager" />
+<meta property="og:title" content="Unity Engine reversing and hacking" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Introduction Some time ago I spent some time reversing Task Manager for fun and practice. I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering." />
-<meta property="og:description" content="Introduction Some time ago I spent some time reversing Task Manager for fun and practice. I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering." />
-<link rel="canonical" href="http://localhost:4000/posts/TaskManager/" />
-<meta property="og:url" content="http://localhost:4000/posts/TaskManager/" />
+<meta name="description" content="Introduction Unity3D is a popular game engine used by many games, like Escape from Tarkov, Rust, Fall Guys, Among Us, and many more. The engine uses C# as scripting backend, and by default runs on top of the Mono Runtime. Since C# assemblies get compiled to MSIL, we can easily reverse engineer them using tools like dnSpy. We are also able to easily inject our dependencies and even reference the games and the engine’s dependencies in our source code. In Unity, this generally is used for writing mods, such as for the game Beat Saber, which depends on the modding community." />
+<meta property="og:description" content="Introduction Unity3D is a popular game engine used by many games, like Escape from Tarkov, Rust, Fall Guys, Among Us, and many more. The engine uses C# as scripting backend, and by default runs on top of the Mono Runtime. Since C# assemblies get compiled to MSIL, we can easily reverse engineer them using tools like dnSpy. We are also able to easily inject our dependencies and even reference the games and the engine’s dependencies in our source code. In Unity, this generally is used for writing mods, such as for the game Beat Saber, which depends on the modding community." />
+<link rel="canonical" href="http://localhost:4000/posts/UnityEngine/" />
+<meta property="og:url" content="http://localhost:4000/posts/UnityEngine/" />
 <meta property="og:site_name" content="VollRagm" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-04-04T00:39:00+02:00" />
+<meta property="article:published_time" content="2022-04-04T23:41:00+02:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Reverse engineering Task Manager" />
+<meta property="twitter:title" content="Unity Engine reversing and hacking" />
 <meta name="twitter:site" content="@vollragm" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-04T00:39:00+02:00","datePublished":"2022-04-04T00:39:00+02:00","description":"Introduction Some time ago I spent some time reversing Task Manager for fun and practice. I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering.","headline":"Reverse engineering Task Manager","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/TaskManager/"},"url":"http://localhost:4000/posts/TaskManager/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-04T23:41:00+02:00","datePublished":"2022-04-04T23:41:00+02:00","description":"Introduction Unity3D is a popular game engine used by many games, like Escape from Tarkov, Rust, Fall Guys, Among Us, and many more. The engine uses C# as scripting backend, and by default runs on top of the Mono Runtime. Since C# assemblies get compiled to MSIL, we can easily reverse engineer them using tools like dnSpy. We are also able to easily inject our dependencies and even reference the games and the engine’s dependencies in our source code. In Unity, this generally is used for writing mods, such as for the game Beat Saber, which depends on the modding community.","headline":"Unity Engine reversing and hacking","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/UnityEngine/"},"url":"http://localhost:4000/posts/UnityEngine/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Reverse engineering Task Manager | VollRagm
+  <title>Unity Engine reversing and hacking | VollRagm
   </title>
 
   <!--
@@ -289,7 +289,7 @@
         
 
           
-            <span>Reverse engineering Task Manager</span>
+            <span>Unity Engine reversing and hacking</span>
           
 
         
@@ -379,6 +379,178 @@
     
       
       
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+
+    
+      
+
+      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+
+      
+
+    
+
+    <!-- Add SVG placehoder to prevent layout reflow -->
+
+    
+
+    <!-- Bypass the HTML-proofer test -->
+    
+
+    
+
+  
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+
+    
+      
+
+      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+
+      
+
+    
+
+    <!-- Add SVG placehoder to prevent layout reflow -->
+
+    
+
+    <!-- Bypass the HTML-proofer test -->
+    
+
+    
+
+  
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+
+      
+    
+
+    
+      
+
+      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+
+      
+
+    
+
+    <!-- Add SVG placehoder to prevent layout reflow -->
+
+    
+
+    <!-- Bypass the HTML-proofer test -->
+    
+
+    
+
+  
     
 
     
@@ -669,6 +841,42 @@
       
 
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
 
     
 
@@ -700,6 +908,42 @@
 
 
 
+  
+  
+
+  
+
+    
+      
+      
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+        
+        
+
+    
+
+    
+    
+
+    
+
+  
+
+  
+
+
+
 <!-- return -->
 
 
@@ -708,7 +952,7 @@
 
 
 
-<h1 data-toc-skip>Reverse engineering Task Manager</h1>
+<h1 data-toc-skip>Unity Engine reversing and hacking</h1>
 
 <div class="post-meta text-muted">
 
@@ -738,7 +982,7 @@
 -->
 
 <em class="timeago"
-    data-ts="1649025540"
+    data-ts="1649108460"
     
       data-toggle="tooltip" data-placement="bottom" data-tooltip-df="llll"
     
@@ -771,8 +1015,8 @@
 
 <!-- return element -->
 <span class="readtime" data-toggle="tooltip" data-placement="bottom"
-  title="394 words">
-  <em>2 min</em> read</span>
+  title="1172 words">
+  <em>6 min</em> read</span>
 
 
       <!-- page views -->
@@ -785,37 +1029,153 @@
 
 <div class="post-content">
   <h1 id="introduction">Introduction</h1>
-<p>Some time ago I spent some time reversing Task Manager for fun and practice.
-I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering.</p>
+<p>Unity3D is a popular game engine used by many games, like Escape from Tarkov, Rust, Fall Guys, Among Us, and many more. The engine uses C# as scripting backend, and by default runs on top of the <a href="https://www.mono-project.com/docs/advanced/runtime/">Mono Runtime</a>. Since C# assemblies get compiled to MSIL, we can easily reverse engineer them using tools like <a href="https://github.com/dnSpyEx/dnSpy">dnSpy</a>.<br />
+We are also able to easily inject our dependencies and even reference the games and the engine’s dependencies in our source code. In Unity, this generally is used for writing mods, such as for the game <a href="https://beatsaber.com/">Beat Saber</a>, which depends on the modding community.</p>
 
-<h2 id="the-performance-tab"><span class="mr-2">The Performance Tab</span><a href="#the-performance-tab" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-<p>At first, I took a look at the Performance tab, because it seemed like an obvious thing to do since I can easily scan for the counter of running processes, threads, and open handles. It was an easy task doing a 4 Byte search for those using Cheat Engine
-<img data-src="https://i.imgur.com/MUwnQ44.png" alt="" data-proofer-ignore>
-Those 3 values are stored as global variables.</p>
+<p>In this post I will be using the simple game <a href="https://store.steampowered.com/app/462930/AdVenture_Communist/">Adventure Communist</a>, which is for free on steam.</p>
+<details>
+  <summary>Show screenshot of the game</summary>
 
-<h2 id="cpu-usage-graph"><span class="mr-2">CPU Usage Graph</span><a href="#cpu-usage-graph" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-<p>After that, I was interested in playing around with the CPU usage graphs. I scanned for the current CPU load percentage using the double data type and found one address. Then I looked up what writes to it and jumped to that instruction in IDA.</p>
+  <img data-data-src="https://i.imgur.com/TrduUVm.png" alt="" data-src="https://i.imgur.com/TrduUVm.png" data-proofer-ignore>
+  
+</details>
 
-<p><img data-src="https://i.imgur.com/y8JA0Rb.png" alt="" data-proofer-ignore></p>
+<p><br /></p>
+<blockquote class="prompt-tip"><div>
+  <p>This game is not protected by Il2Cpp. Games like Fall Guys and Among Us are. However, you can achieve the same results by using tools like <a href="https://github.com/Perfare/Il2CppDumper">Il2CppDumper</a> and <a href="https://github.com/knah/Il2CppAssemblyUnhollower">Il2CppAssemblyUnhollower</a>.</p>
+</div></blockquote>
 
-<p><code class="language-plaintext highlighter-rouge">CvSetData</code> is an OpenCV function to set graph data. <code class="language-plaintext highlighter-rouge">CvSetDataParemeter</code> is the actual value to be set, it comes right after <code class="language-plaintext highlighter-rouge">v39</code> on the stack, so <code class="language-plaintext highlighter-rouge">v39</code> actually is a struct getting passed in, at least that is my assumption. You can see that the CPU Load value is multiplied by the <code class="language-plaintext highlighter-rouge">GraphValueAmplitude</code>. I set a breakpoint there and noticed that its address is static: <code class="language-plaintext highlighter-rouge">taskmgr.exe + 0xC0748 + 0x8</code></p>
+<h2 id="decompiling-the-games-code"><span class="mr-2">Decompiling the game’s code</span><a href="#decompiling-the-games-code" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+<p>All (non-il2cpp) Unity games have an <code class="language-plaintext highlighter-rouge">Assembly-CSharp.dll</code> located inside of <code class="language-plaintext filepath highlighter-rouge">GameRoot\TheNameOfTheGame_Data\Managed\</code>. This file contains all game scripts. We need to plug this DLL into a .NET decompiler. I recommend <a href="https://github.com/dnSpyEx/dnSpy">dnSpy</a> because it is very powerful.</p>
 
-<p>Its data type is double, the default value is 1. If I set it to 100 all CPU cores will appear as if they were on full load.</p>
+<h2 id="finding-a-starting-point"><span class="mr-2">Finding a starting point</span><a href="#finding-a-starting-point" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+<p>This game is a clicker game and its goal is to gain as many resources as possible. Let’s try to increase the number of potatoes.<br />
+Obviously, one could simply edit the save files, however, that would be very boring.<br />
+I started by using the search tool in dnSpy to search for <code class="language-plaintext highlighter-rouge">Potato</code>. The search tool can be found in the top bar, right next to the <code class="language-plaintext highlighter-rouge">Start</code> button. The search yielded a single result.<br />
+<img data-src="https://i.imgur.com/JsjAduY.png" alt="" data-proofer-ignore></p>
 
-<p><img data-src="https://i.imgur.com/bK249FV.png" alt="" data-proofer-ignore></p>
+<p>It’s an Enum with all types of resources that can be gathered in the game.
+Now, if you have some experience with IDA, the next thing you would do here is to look for cross-references. We are going to do the same thing here.</p>
 
-<h2 id="manipulating-the-timer"><span class="mr-2">Manipulating the Timer</span><a href="#manipulating-the-timer" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-<p>The last thing I wanted to manipulate, was the update timer. I did a 4 Bytes scan for an unknown value in CheatEngine. Then changed the update speed in Task Manager and rescanned for increased/decreased values. I quickly found the current delay set by the Timer, but it was read-only. I looked up what writes to it and threw that into IDA.<br />
-<img data-src="https://i.imgur.com/mrqE9yp.png" alt="" data-proofer-ignore></p>
+<h2 id="going-down-the-rabbit-hole"><span class="mr-2">Going down the rabbit hole</span><a href="#going-down-the-rabbit-hole" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+<p>Let’s see what references that Enum. We have to find the class that contains all values we need.<br />
+We can list cross-references in dnSpy by right-clicking the Enums name and then clicking <code class="language-plaintext highlighter-rouge">Analyze</code>. A list is going to show up listing all types of usages of the Enum. I noticed that the Enum was being used in a class called <code class="language-plaintext highlighter-rouge">GeneratorData</code>.<br />
+<img data-src="https://i.imgur.com/rxLvMRf.png" alt="" data-proofer-ignore></p>
 
-<p>The delay values are hardcoded. Here is the address of the fastest value: <code class="language-plaintext highlighter-rouge">taskmgr.exe + 0x33F3A</code></p>
+<p>The game has different types of “Generators” which generate items while you aren’t clicking. Now we do the same trick on the <code class="language-plaintext highlighter-rouge">GeneratorData</code> class: right-click -&gt; <code class="language-plaintext highlighter-rouge">Analyze</code>.<br />
+dnSpy will show us, that a <code class="language-plaintext highlighter-rouge">GeneretorData</code> object is being used to initialize an object of type <code class="language-plaintext highlighter-rouge">GeneratorModel</code> inside of the <code class="language-plaintext highlighter-rouge">Execute</code> method in the <code class="language-plaintext highlighter-rouge">InitializeGameModelCommand</code> class.<br />
+<img data-src="https://i.imgur.com/Dix0M2t.png" alt="" data-proofer-ignore></p>
 
-<p>If you write 20 milliseconds to that address and then choose the “Fast” update speed in Task Manager you will see Task Manager refreshing all values rapidly.</p>
-<div style="width: 100%; height: auto; position: relative; padding-bottom: 56.250%;"><iframe src="https://streamable.com/e/w0zln2" frameborder="0" width="100%" height="100%" allowfullscreen="" style="width: 100%; height: 100%; position: absolute;"></iframe></div>
+<p>This method seems to be initializing Generators for all kinds of resources.
+An object of type <code class="language-plaintext highlighter-rouge">GameModel</code> is passed into this method which contains a Dictionary called <code class="language-plaintext highlighter-rouge">Resources</code>. This is the Dictionary that stores the number of resources we have.<br />
+This means that we have to get this <code class="language-plaintext highlighter-rouge">GameModel</code> instance somehow. However, before that, we are going to take a quick dive into the engine’s principles.</p>
+
+<h2 id="what-is-a-gameobject"><span class="mr-2">What is a GameObject?</span><a href="#what-is-a-gameobject" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+<p>We know that we have to find the <code class="language-plaintext highlighter-rouge">GameModel</code> instance. To do so, we have to understand the engine’s structure first.<br />
+Every scene holds GameObjects. GameObjects do nothing by default. However, we can apply components to a GameObject, such as a C# script.<br />
+All C# script classes have to inherit from the <code class="language-plaintext highlighter-rouge">MonoBehaviour</code> class.
+After doing so, you can place methods like <code class="language-plaintext highlighter-rouge">Start()</code> or <code class="language-plaintext highlighter-rouge">Update()</code> in your code and the engine will call them for you at initialization or on each frame.<br />
+This means that we can assume, that the game has a GameObject somewhere which has a script component managing the game. This script class likely holds the GameModel instance we are searching for.</p>
+
+<h2 id="finding-the-game-manager"><span class="mr-2">Finding the game manager</span><a href="#finding-the-game-manager" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+<p>We know, that the <code class="language-plaintext highlighter-rouge">GameModel</code> is getting initialized by that <code class="language-plaintext highlighter-rouge">Execute</code> method. This method call can once again be traced using dnSpy’s <code class="language-plaintext highlighter-rouge">Analyze</code> feature.
+The method is getting called from <code class="language-plaintext highlighter-rouge">GameController.Init()</code>.
+<img data-src="https://i.imgur.com/wsw80Pi.png" alt="" data-proofer-ignore></p>
+
+<p>This <code class="language-plaintext highlighter-rouge">GameController</code> class however still does not inherit <code class="language-plaintext highlighter-rouge">MonoBehaviour</code>, which means that it is not a component of a GameObject.<br />
+We need to repeat the analysis on the <code class="language-plaintext highlighter-rouge">GameController</code> class to see, where it’s being initialized.</p>
+
+<p>We end up in <code class="language-plaintext highlighter-rouge">SceneRootGame.Start()</code>.
+<img data-src="https://i.imgur.com/odNcOEk.png" alt="" data-proofer-ignore></p>
+
+<p><code class="language-plaintext highlighter-rouge">SceneRootGame</code> does inherit from MonoBehaviour and it also has the <code class="language-plaintext highlighter-rouge">Start()</code> method, which will get called by the engine when the GameObject spawns.
+It also holds a reference to the <code class="language-plaintext highlighter-rouge">GameController</code>, which holds the reference to the <code class="language-plaintext highlighter-rouge">GameModel</code>. Finally, the <code class="language-plaintext highlighter-rouge">GameModel</code> has the dictionary with all resource counts.</p>
+
+<h2 id="developing-a-hack-trainer"><span class="mr-2">Developing a hack trainer</span><a href="#developing-a-hack-trainer" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+<p>The gained knowledge can be used to write a DLL dependency that can be injected into the game. For this, you are going to need to set up a C# class library, reference the game’s DLLs, and set up a loader. If you haven’t done this before I highly recommend you to check out Zat’s <a href="https://www.unknowncheats.me/forum/unity/285864-beginners-guide-hacking-unity-games.html">Beginner’s Guide To Hacking Unity Games</a> because the entire set up procedure is explained there.</p>
+
+<p>Anyways, the final step is getting the <code class="language-plaintext highlighter-rouge">SceneRootGame</code> instance itself. Since it is a GameObject component, we can use the engine method <code class="language-plaintext highlighter-rouge">GameObject.FindObjectOfType&lt;Type&gt;()</code> to search for the instance.<br />
+If we pass in <code class="language-plaintext highlighter-rouge">SceneRootGame</code> as the type, we will get the first <code class="language-plaintext highlighter-rouge">SceneRootGame</code> instance it finds. Once again, this then contains the <code class="language-plaintext highlighter-rouge">GameModel</code>, et cetera.<br />
+The following code is going to give us a lot of potatoes.</p>
+
+<div class="language-cs highlighter-rouge"><div class="code-header">
+        <span data-label-text="C#"><i class="fas fa-code small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="k">using</span> <span class="nn">AdComm</span><span class="p">;</span> <span class="c1">//import game namespace</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>  <span class="c1">//import unity engine namespace</span>
+ 
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ItemsCheat</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">CheatPotatoes</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">SceneRootGame</span> <span class="n">sceneRoot</span> <span class="p">=</span> <span class="n">GameObject</span><span class="p">.</span><span class="n">FindObjectOfType</span><span class="p">&lt;</span><span class="n">SceneRootGame</span><span class="p">&gt;();</span> <span class="c1">//get the SceneRootGame object that controls everything</span>
+        <span class="n">GameController</span> <span class="n">gameController</span> <span class="p">=</span> <span class="n">sceneRoot</span><span class="p">.</span><span class="n">Game</span><span class="p">;</span> <span class="c1">//get the GameController of the SceneRootGame</span>
+        <span class="n">GameModel</span> <span class="n">gameModel</span> <span class="p">=</span> <span class="n">gameController</span><span class="p">.</span><span class="n">Model</span><span class="p">;</span> <span class="c1">//get the game model</span>
+ 
+        <span class="n">gameModel</span><span class="p">.</span><span class="n">Resources</span><span class="p">[</span> <span class="n">AdComm</span><span class="p">.</span><span class="n">Resources</span><span class="p">.</span><span class="n">Resource</span><span class="p">.</span><span class="n">Potato</span> <span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="m">10000000</span><span class="p">;</span>   <span class="c1">//set the value of the Potato Resource to a high number</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>We can iterate over the resources Enum and set all types of resources to a high value as well.</p>
+
+<div class="language-cs highlighter-rouge"><div class="code-header">
+        <span data-label-text="C#"><i class="fas fa-code small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="k">void</span> <span class="nf">GetAllItems</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">SceneRootGame</span> <span class="n">sceneRoot</span> <span class="p">=</span> <span class="n">GameObject</span><span class="p">.</span><span class="n">FindObjectOfType</span><span class="p">&lt;</span><span class="n">SceneRootGame</span><span class="p">&gt;();</span> <span class="c1">//get the SceneRootGame object that controls everything</span>
+    <span class="n">GameController</span> <span class="n">gameController</span> <span class="p">=</span> <span class="n">sceneRoot</span><span class="p">.</span><span class="n">Game</span><span class="p">;</span> <span class="c1">//get the GameController of the SceneRootGame</span>
+    <span class="n">GameModel</span> <span class="n">gameModel</span> <span class="p">=</span> <span class="n">gameController</span><span class="p">.</span><span class="n">Model</span><span class="p">;</span> <span class="c1">//get the game model</span>
+
+    <span class="n">List</span><span class="p">&lt;</span><span class="n">AdComm</span><span class="p">.</span><span class="n">Resources</span><span class="p">.</span><span class="n">Resource</span><span class="p">&gt;</span> <span class="n">AllResources</span> <span class="p">=</span> <span class="n">Enum</span><span class="p">.</span><span class="nf">GetValues</span><span class="p">(</span>
+                                                    <span class="k">typeof</span><span class="p">(</span><span class="n">AdComm</span><span class="p">.</span><span class="n">Resources</span><span class="p">.</span><span class="n">Resource</span><span class="p">))</span>
+                                                    <span class="p">.</span><span class="n">Cast</span><span class="p">&lt;</span><span class="n">AdComm</span><span class="p">.</span><span class="n">Resources</span><span class="p">.</span><span class="n">Resource</span><span class="p">&gt;().</span><span class="nf">ToList</span><span class="p">();</span>  <span class="c1">//get all available Resource Types as list</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="n">AdComm</span><span class="p">.</span><span class="n">Resources</span><span class="p">.</span><span class="n">Resource</span> <span class="n">resourceType</span> <span class="k">in</span> <span class="n">AllResources</span><span class="p">)</span> <span class="c1">//iterate through the resources</span>
+    <span class="p">{</span>
+        <span class="n">gameModel</span><span class="p">.</span><span class="n">Resources</span><span class="p">[</span><span class="n">resourceType</span><span class="p">].</span><span class="n">Value</span> <span class="p">=</span> <span class="m">1000000000</span><span class="p">;</span> <span class="c1">//set amount of the resource to huge number</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p><img data-src="https://i.imgur.com/SzibJRT.png" alt="" data-proofer-ignore></p>
 
 <h2 id="conclusion"><span class="mr-2">Conclusion</span><a href="#conclusion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-
-<p>I hope you gained some knowledge from this post. I also hope I was able to raise your interest in reverse engineering if you are a beginner.</p>
+<p>Unity game hacking is a lot of fun. There is a lot that can be done thanks to the direct access to engine methods.<br />
+You can easily spawn new GameObjects, modify textures, and do a lot of other things. It gets slightly harder when the game is protected with Il2cpp, but not impossible. Sadly many multiplayer games use advanced anti-cheats like EasyAntiCheat, and due to the nature of Mono injection, it is hard to inject a Mono DLL without getting caught by the anti-cheat. In those cases, it’s probably better to go for a native approach.</p>
 
 </div>
 
@@ -835,14 +1195,14 @@ Those 3 values are stored as global variables.</p>
   <div class="post-tags">
     <i class="fa fa-tags fa-fw mr-1"></i>
       
-      <a href="/tags/native/"
-          class="post-tag no-text-decoration" >native</a>
-      
-      <a href="/tags/windows/"
-          class="post-tag no-text-decoration" >windows</a>
+      <a href="/tags/net/"
+          class="post-tag no-text-decoration" >.net</a>
       
       <a href="/tags/reversing/"
           class="post-tag no-text-decoration" >reversing</a>
+      
+      <a href="/tags/game-hacking/"
+          class="post-tag no-text-decoration" >game hacking</a>
       
   </div>
   
@@ -876,19 +1236,19 @@ Those 3 values are stored as global variables.</p>
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=Reverse engineering Task Manager - VollRagm&amp;url=http://localhost:4000/posts/TaskManager/" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=Unity Engine reversing and hacking - VollRagm&amp;url=http://localhost:4000/posts/UnityEngine/" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=Reverse engineering Task Manager - VollRagm&amp;u=http://localhost:4000/posts/TaskManager/" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=Unity Engine reversing and hacking - VollRagm&amp;u=http://localhost:4000/posts/UnityEngine/" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http://localhost:4000/posts/TaskManager/&amp;text=Reverse engineering Task Manager - VollRagm" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http://localhost:4000/posts/UnityEngine/&amp;text=Unity Engine reversing and hacking - VollRagm" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -1175,46 +1535,46 @@ Those 3 values are stored as global variables.</p>
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
   
 
   
@@ -1332,7 +1692,7 @@ Now, you might be thinking that something like this would be totally foolish and
       
       
       <div class="card">
-        <a href="/posts/PTView/">
+        <a href="/posts/TaskManager/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1346,7 +1706,7 @@ Now, you might be thinking that something like this would be totally foolish and
   2022-04-04
 </em>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>PTView - Browse Page Tables on Windows</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Reverse engineering Task Manager</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1356,11 +1716,8 @@ Now, you might be thinking that something like this would be totally foolish and
 
 
                 Introduction
-
-Page Tables can be a complicated concept to understand.
-This is why I created PTView. You can use this tool to visualize page tables and be able to browse them.
-
-It allows you to insp...
+Some time ago I spent some time reversing Task Manager for fun and practice.
+I will share my findings in this blog post. Note that most of the things in this post might not be interest...
               </p>
             </div>
           </div>
@@ -1379,17 +1736,17 @@ It allows you to insp...
 
 <div class="post-navigation d-flex justify-content-between">
   
-  <a href="/posts/PTView/" class="btn btn-outline-primary"
+  <a href="/posts/Minesweeper/" class="btn btn-outline-primary"
     prompt="Older">
-    <p>PTView - Browse Page Tables on Windows</p>
+    <p>Reverse Engineering Windows 7 Minesweeper</p>
   </a>
   
 
   
-  <a href="/posts/WebAPI/" class="btn btn-outline-primary"
+  <span class="btn btn-outline-primary disabled"
     prompt="Newer">
-    <p>Reverse engineering a Web API</p>
-  </a>
+    <p>-</p>
+  </span>
   
 
 </div>

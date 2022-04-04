@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-04T23:18:23+02:00</updated>
+  <updated>2022-04-05T01:15:13+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,47 @@
 
   
   <entry>
+    <title>Unity Engine reversing and hacking</title>
+    <link href="http://localhost:4000/posts/UnityEngine/" rel="alternate" type="text/html" title="Unity Engine reversing and hacking" />
+    <published>2022-04-04T23:41:00+02:00</published>
+  
+    <updated>2022-04-04T23:41:00+02:00</updated>
+  
+    <id>http://localhost:4000/posts/UnityEngine/</id>
+    <content src="http://localhost:4000/posts/UnityEngine/" />
+    <author>
+      <name>VollRagm</name>
+    </author>
+
+  
+    
+    <category term="Reverse Engineering" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Introduction
+Unity3D is a popular game engine used by many games, like Escape from Tarkov, Rust, Fall Guys, Among Us, and many more. The engine uses C# as scripting backend, and by default runs on top of the Mono Runtime. Since C# assemblies get compiled to MSIL, we can easily reverse engineer them using tools like dnSpy.
+We are also able to easily inject our dependencies and even reference the...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>Reverse Engineering Windows 7 Minesweeper</title>
     <link href="http://localhost:4000/posts/Minesweeper/" rel="alternate" type="text/html" title="Reverse Engineering Windows 7 Minesweeper" />
-    <published>2022-04-04T22:23:23+02:00</published>
+    <published>2022-04-04T22:23:00+02:00</published>
   
-    <updated>2022-04-04T22:23:23+02:00</updated>
+    <updated>2022-04-04T22:23:00+02:00</updated>
   
     <id>http://localhost:4000/posts/Minesweeper/</id>
     <content src="http://localhost:4000/posts/Minesweeper/" />
@@ -170,47 +206,6 @@ This is why I created PTView. You can use this tool to visualize page tables and
 
 It allows you to inspect a Windows processes Page Tables live.
 You can browse through them in a GUI and dump the physical pages they point to, as well as translate virtual to physical addresses and get the virtual address...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>KernelSharp - Write Kernel Drivers in C#</title>
-    <link href="http://localhost:4000/posts/KernelSharp/" rel="alternate" type="text/html" title="KernelSharp - Write Kernel Drivers in C#" />
-    <published>2022-04-03T23:00:00+02:00</published>
-  
-    <updated>2022-04-03T23:00:00+02:00</updated>
-  
-    <id>http://localhost:4000/posts/KernelSharp/</id>
-    <content src="http://localhost:4000/posts/KernelSharp/" />
-    <author>
-      <name>VollRagm</name>
-    </author>
-
-  
-    
-    <category term="Kernel Development" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Introduction
-In the past, people asked me if it was possible to write a kernel-mode Driver for Windows in C#.
-Now, you might be thinking that something like this would be totally foolish and serve no purpose.
-Let me tell you one thing: You are totally right about that.
-But after getting asked this question multiple times, I have decided to make it possible.
-
-.NET in Kernel-mode?
-There are sever...
     </summary>
   
 
