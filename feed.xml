@@ -1,17 +1,17 @@
 
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>http://localhost:4000/</id>
+  <id>https://vollragm.github.io/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-05T01:15:13+02:00</updated>
+  <updated>2022-04-05T02:03:53+02:00</updated>
   <author>
     <name>VollRagm</name>
-    <uri>http://localhost:4000/</uri>
+    <uri>https://vollragm.github.io/</uri>
   </author>
-  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="self" type="application/atom+xml" href="https://vollragm.github.io/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="en"
-    href="http://localhost:4000/"/>
+    href="https://vollragm.github.io/"/>
   <generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator>
   <rights> © 2022 VollRagm </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
@@ -21,13 +21,13 @@
   
   <entry>
     <title>Unity Engine reversing and hacking</title>
-    <link href="http://localhost:4000/posts/UnityEngine/" rel="alternate" type="text/html" title="Unity Engine reversing and hacking" />
+    <link href="https://vollragm.github.io/posts/UnityEngine/" rel="alternate" type="text/html" title="Unity Engine reversing and hacking" />
     <published>2022-04-04T23:41:00+02:00</published>
   
     <updated>2022-04-04T23:41:00+02:00</updated>
   
-    <id>http://localhost:4000/posts/UnityEngine/</id>
-    <content src="http://localhost:4000/posts/UnityEngine/" />
+    <id>https://vollragm.github.io/posts/UnityEngine/</id>
+    <content src="https://vollragm.github.io/posts/UnityEngine/" />
     <author>
       <name>VollRagm</name>
     </author>
@@ -57,13 +57,13 @@ We are also able to easily inject our dependencies and even reference the...
   
   <entry>
     <title>Reverse Engineering Windows 7 Minesweeper</title>
-    <link href="http://localhost:4000/posts/Minesweeper/" rel="alternate" type="text/html" title="Reverse Engineering Windows 7 Minesweeper" />
+    <link href="https://vollragm.github.io/posts/Minesweeper/" rel="alternate" type="text/html" title="Reverse Engineering Windows 7 Minesweeper" />
     <published>2022-04-04T22:23:00+02:00</published>
   
     <updated>2022-04-04T22:23:00+02:00</updated>
   
-    <id>http://localhost:4000/posts/Minesweeper/</id>
-    <content src="http://localhost:4000/posts/Minesweeper/" />
+    <id>https://vollragm.github.io/posts/Minesweeper/</id>
+    <content src="https://vollragm.github.io/posts/Minesweeper/" />
     <author>
       <name>VollRagm</name>
     </author>
@@ -99,13 +99,13 @@ This post is written for beginners, however, I recommend having the following al
   
   <entry>
     <title>Reverse engineering a Web API</title>
-    <link href="http://localhost:4000/posts/WebAPI/" rel="alternate" type="text/html" title="Reverse engineering a Web API" />
+    <link href="https://vollragm.github.io/posts/WebAPI/" rel="alternate" type="text/html" title="Reverse engineering a Web API" />
     <published>2022-04-04T01:34:00+02:00</published>
   
     <updated>2022-04-04T01:34:00+02:00</updated>
   
-    <id>http://localhost:4000/posts/WebAPI/</id>
-    <content src="http://localhost:4000/posts/WebAPI/" />
+    <id>https://vollragm.github.io/posts/WebAPI/</id>
+    <content src="https://vollragm.github.io/posts/WebAPI/" />
     <author>
       <name>VollRagm</name>
     </author>
@@ -135,13 +135,13 @@ Some people in the gaming community scan a game’s username database for certai
   
   <entry>
     <title>Reverse engineering Task Manager</title>
-    <link href="http://localhost:4000/posts/TaskManager/" rel="alternate" type="text/html" title="Reverse engineering Task Manager" />
+    <link href="https://vollragm.github.io/posts/TaskManager/" rel="alternate" type="text/html" title="Reverse engineering Task Manager" />
     <published>2022-04-04T00:39:00+02:00</published>
   
     <updated>2022-04-04T00:39:00+02:00</updated>
   
-    <id>http://localhost:4000/posts/TaskManager/</id>
-    <content src="http://localhost:4000/posts/TaskManager/" />
+    <id>https://vollragm.github.io/posts/TaskManager/</id>
+    <content src="https://vollragm.github.io/posts/TaskManager/" />
     <author>
       <name>VollRagm</name>
     </author>
@@ -174,13 +174,13 @@ At first, I took a look at the Performance tab, because it seemed like an obviou
   
   <entry>
     <title>PTView - Browse Page Tables on Windows</title>
-    <link href="http://localhost:4000/posts/PTView/" rel="alternate" type="text/html" title="PTView - Browse Page Tables on Windows" />
+    <link href="https://vollragm.github.io/posts/PTView/" rel="alternate" type="text/html" title="PTView - Browse Page Tables on Windows" />
     <published>2022-04-04T00:39:00+02:00</published>
   
     <updated>2022-04-04T00:39:00+02:00</updated>
   
-    <id>http://localhost:4000/posts/PTView/</id>
-    <content src="http://localhost:4000/posts/PTView/" />
+    <id>https://vollragm.github.io/posts/PTView/</id>
+    <content src="https://vollragm.github.io/posts/PTView/" />
     <author>
       <name>VollRagm</name>
     </author>
