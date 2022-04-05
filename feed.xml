@@ -4,7 +4,7 @@
   <id>https://vollragm.github.io/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-05T16:51:50+02:00</updated>
+  <updated>2022-04-05T17:14:39+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>https://vollragm.github.io/</uri>
@@ -24,7 +24,7 @@
     <link href="https://vollragm.github.io/posts/kernel-message-box/" rel="alternate" type="text/html" title="Showing a MessageBox from kernel-mode" />
     <published>2022-04-05T14:44:00+02:00</published>
   
-    <updated>2022-04-05T14:44:00+02:00</updated>
+    <updated>2022-04-05T16:51:57+02:00</updated>
   
     <id>https://vollragm.github.io/posts/kernel-message-box/</id>
     <content src="https://vollragm.github.io/posts/kernel-message-box/" />
