@@ -39,24 +39,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Reverse engineering Task Manager" />
+<meta property="og:title" content="Showing a MessageBox from kernel-mode" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Introduction Some time ago I spent some time reversing Task Manager for fun and practice. I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering." />
-<meta property="og:description" content="Introduction Some time ago I spent some time reversing Task Manager for fun and practice. I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering." />
-<link rel="canonical" href="https://vollragm.github.io/posts/TaskManager/" />
-<meta property="og:url" content="https://vollragm.github.io/posts/TaskManager/" />
+<meta name="description" content="Introduction Message boxes provide a simple way to show feedback to the user. In user-mode a message box can be shown with the MessageBoxW API function. However, this API does not exist in kernel-mode. One of the common ways to display info from kernel-mode is the DbgPrint API, which can be listened to from DbgView or an attached Kernel debugger. Recently I wanted to display a message box from kernel-mode though, so the user can receive feedback easily. There already are sources on how its done out in the web, but I want to take you through the inner workings of the MessageBox function itself and add more information to it." />
+<meta property="og:description" content="Introduction Message boxes provide a simple way to show feedback to the user. In user-mode a message box can be shown with the MessageBoxW API function. However, this API does not exist in kernel-mode. One of the common ways to display info from kernel-mode is the DbgPrint API, which can be listened to from DbgView or an attached Kernel debugger. Recently I wanted to display a message box from kernel-mode though, so the user can receive feedback easily. There already are sources on how its done out in the web, but I want to take you through the inner workings of the MessageBox function itself and add more information to it." />
+<link rel="canonical" href="https://vollragm.github.io/posts/kernel-message-box/" />
+<meta property="og:url" content="https://vollragm.github.io/posts/kernel-message-box/" />
 <meta property="og:site_name" content="VollRagm" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-04-04T00:39:00+02:00" />
+<meta property="article:published_time" content="2022-04-05T14:44:00+02:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Reverse engineering Task Manager" />
+<meta property="twitter:title" content="Showing a MessageBox from kernel-mode" />
 <meta name="twitter:site" content="@vollragm" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-04T00:39:00+02:00","datePublished":"2022-04-04T00:39:00+02:00","description":"Introduction Some time ago I spent some time reversing Task Manager for fun and practice. I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering.","headline":"Reverse engineering Task Manager","mainEntityOfPage":{"@type":"WebPage","@id":"https://vollragm.github.io/posts/TaskManager/"},"url":"https://vollragm.github.io/posts/TaskManager/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-05T14:44:00+02:00","datePublished":"2022-04-05T14:44:00+02:00","description":"Introduction Message boxes provide a simple way to show feedback to the user. In user-mode a message box can be shown with the MessageBoxW API function. However, this API does not exist in kernel-mode. One of the common ways to display info from kernel-mode is the DbgPrint API, which can be listened to from DbgView or an attached Kernel debugger. Recently I wanted to display a message box from kernel-mode though, so the user can receive feedback easily. There already are sources on how its done out in the web, but I want to take you through the inner workings of the MessageBox function itself and add more information to it.","headline":"Showing a MessageBox from kernel-mode","mainEntityOfPage":{"@type":"WebPage","@id":"https://vollragm.github.io/posts/kernel-message-box/"},"url":"https://vollragm.github.io/posts/kernel-message-box/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Reverse engineering Task Manager | VollRagm
+  <title>Showing a MessageBox from kernel-mode | VollRagm
   </title>
 
   <!--
@@ -289,7 +289,7 @@
         
 
           
-            <span>Reverse engineering Task Manager</span>
+            <span>Showing a MessageBox from kernel-mode</span>
           
 
         
@@ -372,233 +372,6 @@
 
 
 
-  
-  
-
-  
-    
-      
-      
-    
-
-    
-    
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-
-      
-    
-
-    
-      
-
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
-
-      
-
-    
-
-    <!-- Add SVG placehoder to prevent layout reflow -->
-
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-
-  
-    
-
-    
-    
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-
-      
-    
-
-    
-      
-
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
-
-      
-
-    
-
-    <!-- Add SVG placehoder to prevent layout reflow -->
-
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-
-  
-    
-
-    
-    
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-
-      
-    
-
-    
-      
-
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
-
-      
-
-    
-
-    <!-- Add SVG placehoder to prevent layout reflow -->
-
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-
-  
-    
-
-    
-    
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-
-      
-    
-
-    
-      
-
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
-
-      
-
-    
-
-    <!-- Add SVG placehoder to prevent layout reflow -->
-
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-
-  
-
-  
-
-
 
 <!-- Add header for code snippets -->
 
@@ -621,30 +394,6 @@
       
         
         
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
       
 
       
@@ -700,6 +449,42 @@
 
 
 
+  
+  
+
+  
+
+    
+      
+      
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+        
+        
+
+    
+
+    
+    
+
+    
+
+  
+
+  
+
+
+
 <!-- return -->
 
 
@@ -708,7 +493,7 @@
 
 
 
-<h1 data-toc-skip>Reverse engineering Task Manager</h1>
+<h1 data-toc-skip>Showing a MessageBox from kernel-mode</h1>
 
 <div class="post-meta text-muted">
 
@@ -738,12 +523,12 @@
 -->
 
 <em class="timeago"
-    data-ts="1649025540"
+    data-ts="1649162640"
     
       data-toggle="tooltip" data-placement="bottom" data-tooltip-df="llll"
     
     >
-  2022-04-04
+  2022-04-05
 </em>
 
       </span>
@@ -771,8 +556,8 @@
 
 <!-- return element -->
 <span class="readtime" data-toggle="tooltip" data-placement="bottom"
-  title="394 words">
-  <em>2 min</em> read</span>
+  title="669 words">
+  <em>3 min</em> read</span>
 
 
       <!-- page views -->
@@ -785,37 +570,128 @@
 
 <div class="post-content">
   <h1 id="introduction">Introduction</h1>
-<p>Some time ago I spent some time reversing Task Manager for fun and practice.
-I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering.</p>
+<p>Message boxes provide a simple way to show feedback to the user. In user-mode a message box can be shown with the <code class="language-plaintext highlighter-rouge">MessageBoxW</code> API function. However, this API does not exist in kernel-mode. One of the common ways to display info from kernel-mode is the <code class="language-plaintext highlighter-rouge">DbgPrint</code> API, which can be listened to from DbgView or an attached Kernel debugger. Recently I wanted to display a message box from kernel-mode though, so the user can receive feedback easily. There already are sources on how its done out in the web, but I want to take you through the inner workings of the <code class="language-plaintext highlighter-rouge">MessageBox</code> function itself and add more information to it.</p>
 
-<h2 id="the-performance-tab"><span class="mr-2">The Performance Tab</span><a href="#the-performance-tab" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-<p>At first, I took a look at the Performance tab, because it seemed like an obvious thing to do since I can easily scan for the counter of running processes, threads, and open handles. It was an easy task doing a 4 Byte search for those using Cheat Engine
-<img data-src="https://i.imgur.com/MUwnQ44.png" alt="" data-proofer-ignore>
-Those 3 values are stored as global variables.</p>
+<blockquote class="prompt-danger"><div>
+  <p>This entire procedure only works if the calling thread belongs to a user-mode process. This means it works when manuall mapping a drivers with a mapper like <a href="https://github.com/TheCruZ/kdmapper">kdmapper</a>. The reason for this limitation will be explained later.</p>
+</div></blockquote>
 
-<h2 id="cpu-usage-graph"><span class="mr-2">CPU Usage Graph</span><a href="#cpu-usage-graph" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-<p>After that, I was interested in playing around with the CPU usage graphs. I scanned for the current CPU load percentage using the double data type and found one address. Then I looked up what writes to it and jumped to that instruction in IDA.</p>
+<h2 id="messageboxw"><span class="mr-2">MessageBoxW</span><a href="#messageboxw" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+<p>The <code class="language-plaintext highlighter-rouge">MessageBoxW</code> API is located inside of <code class="language-plaintext highlighter-rouge">user32.dll</code>. The only thing it really does is to call <code class="language-plaintext highlighter-rouge">MessageBoxTimeoutW</code>. Inside of <code class="language-plaintext highlighter-rouge">MessageBoxTimeoutW</code>, a struct is initialized which holds all arguments for the message box, such as the text, caption, and type. Finally, <code class="language-plaintext highlighter-rouge">MessageBoxWorker</code> gets called. This function runs some extra checks, for example if the current thread is a GUI thread. It also checks, whether a parent window handle was passed into <code class="language-plaintext highlighter-rouge">MessageBoxW</code>. If that is the case, the function calls into <code class="language-plaintext highlighter-rouge">SoftModalMessageBox</code>, otherwise it calls <code class="language-plaintext highlighter-rouge">ServiceMessageBox</code>. Since we don’t have a parent window handle in kernel-mode, we are going to enter <code class="language-plaintext highlighter-rouge">ServiceMessageBox</code>.<br />
+This is where interesting things happen. After checking the threads and processes session IDs it puts the message box arguments into an array and calls <code class="language-plaintext highlighter-rouge">NtRaiseHardError</code> API from <code class="language-plaintext highlighter-rouge">ntdll.dll</code>. The <code class="language-plaintext highlighter-rouge">ErrorStatus</code> argument is set to <code class="language-plaintext highlighter-rouge">0x50000018</code>, which is <code class="language-plaintext highlighter-rouge">STATUS_SERVICE_NOTIFICATION</code>.</p>
+<div class="language-cpp highlighter-rouge"><div class="code-header">
+        <span data-label-text="Cpp"><i class="fas fa-code small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="n">RtlInitUnicodeString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lpTextStr</span><span class="p">,</span> <span class="n">lpText</span><span class="p">);</span>
+<span class="n">RtlInitUnicodeString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lpCaptionStr</span><span class="p">,</span> <span class="n">lpCaption</span><span class="p">);</span>
+<span class="n">arguments</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">MsgBoxType2</span><span class="p">;</span>
+<span class="n">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lpTextStr</span><span class="p">;</span>
+<span class="n">arguments</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">v4</span><span class="p">;</span>
+<span class="n">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lpCaptionStr</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span> <span class="n">NtRaiseHardError</span><span class="p">(</span><span class="mh">0x50000018</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">response</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="p">(</span><span class="n">v20</span> <span class="o">=</span> <span class="n">response</span><span class="p">,</span> <span class="n">response</span> <span class="o">&gt;=</span> <span class="mh">0xB</span><span class="p">)</span> <span class="p">)</span>
+    <span class="n">v20</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></div></div>
 
-<p><img data-src="https://i.imgur.com/y8JA0Rb.png" alt="" data-proofer-ignore></p>
+<h2 id="implementation"><span class="mr-2">Implementation</span><a href="#implementation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+<p>We can reproduce this behaviour easily. The kernel-mode API for <code class="language-plaintext highlighter-rouge">NtRaiseHardError</code> is the ntoskrnl export <code class="language-plaintext highlighter-rouge">ExRaiseHardError</code>.
+The <code class="language-plaintext highlighter-rouge">Response</code> argument even returns the message boxes response, for example which button the user clicked on a Yes/No prompt. The types match the one from user-mode (e.g. <code class="language-plaintext highlighter-rouge">MB_OK</code>, <code class="language-plaintext highlighter-rouge">MB_YESNO</code>).</p>
 
-<p><code class="language-plaintext highlighter-rouge">CvSetData</code> is an OpenCV function to set graph data. <code class="language-plaintext highlighter-rouge">CvSetDataParemeter</code> is the actual value to be set, it comes right after <code class="language-plaintext highlighter-rouge">v39</code> on the stack, so <code class="language-plaintext highlighter-rouge">v39</code> actually is a struct getting passed in, at least that is my assumption. You can see that the CPU Load value is multiplied by the <code class="language-plaintext highlighter-rouge">GraphValueAmplitude</code>. I set a breakpoint there and noticed that its address is static: <code class="language-plaintext highlighter-rouge">taskmgr.exe + 0xC0748 + 0x8</code></p>
+<p>As I mentioned above, the calling thread must belong to a user-mode thread. If you use the Service Manager to start your driver and call this in your DriverEntry it will not work. However, if you call it in your IOCTL handler it is going to work because the thread originated from a DeviceIoControl call in a user-mode process. The reason for this limitation is, that <code class="language-plaintext highlighter-rouge">ExRaiseHardError</code> in kernel-mode eventually does a <a href="https://en.wikipedia.org/wiki/Local_Inter-Process_Communication">Local Procedure Call</a> to the exception port of the executing process. The System process does not have that.
+Furthermore, the first bit in <code class="language-plaintext highlighter-rouge">PEPROCESS-&gt;DefaultHardErrorProcessing</code> has to be set accordingly. I have tried attaching to another process using <code class="language-plaintext highlighter-rouge">KeStackAttachProcess</code>, this caused a MessageBox to show up, but it was empty and at this point I stopped going further.</p>
 
-<p>Its data type is double, the default value is 1. If I set it to 100 all CPU cores will appear as if they were on full load.</p>
+<p>For the people manually mapping their drivers however and wanting a simple feedback for a potential user, here is the implementation:</p>
 
-<p><img data-src="https://i.imgur.com/bK249FV.png" alt="" data-proofer-ignore></p>
+<div class="language-cpp highlighter-rouge"><div class="code-header">
+        <span data-label-text="Cpp"><i class="fas fa-code small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="k">extern</span> <span class="s">"C"</span> <span class="n">NTSTATUS</span> <span class="n">NTAPI</span> <span class="nf">ExRaiseHardError</span><span class="p">(</span>
+    <span class="n">NTSTATUS</span> <span class="n">ErrorStatus</span><span class="p">,</span> <span class="n">ULONG</span> <span class="n">NumberOfParameters</span><span class="p">,</span> 
+    <span class="n">ULONG</span> <span class="n">UnicodeStringParameterMask</span><span class="p">,</span> <span class="n">PULONG_PTR</span> <span class="n">Parameters</span><span class="p">,</span>
+    <span class="n">ULONG</span> <span class="n">ValidResponseOptions</span><span class="p">,</span> <span class="n">PULONG</span> <span class="n">Response</span><span class="p">);</span>
 
-<h2 id="manipulating-the-timer"><span class="mr-2">Manipulating the Timer</span><a href="#manipulating-the-timer" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
-<p>The last thing I wanted to manipulate, was the update timer. I did a 4 Bytes scan for an unknown value in CheatEngine. Then changed the update speed in Task Manager and rescanned for increased/decreased values. I quickly found the current delay set by the Timer, but it was read-only. I looked up what writes to it and threw that into IDA.<br />
-<img data-src="https://i.imgur.com/mrqE9yp.png" alt="" data-proofer-ignore></p>
+<span class="n">ULONG</span> <span class="nf">KeMessageBox</span><span class="p">(</span><span class="n">PCWSTR</span> <span class="n">title</span><span class="p">,</span> <span class="n">PCWSTR</span> <span class="n">text</span><span class="p">,</span> <span class="n">ULONG_PTR</span> <span class="n">type</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">UNICODE_STRING</span> <span class="n">uTitle</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+	<span class="n">UNICODE_STRING</span> <span class="n">uText</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
 
-<p>The delay values are hardcoded. Here is the address of the fastest value: <code class="language-plaintext highlighter-rouge">taskmgr.exe + 0x33F3A</code></p>
+	<span class="n">RtlInitUnicodeString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uTitle</span><span class="p">,</span> <span class="n">title</span><span class="p">);</span>
+	<span class="n">RtlInitUnicodeString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uText</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
 
-<p>If you write 20 milliseconds to that address and then choose the “Fast” update speed in Task Manager you will see Task Manager refreshing all values rapidly.</p>
-<div style="width: 100%; height: auto; position: relative; padding-bottom: 56.250%;"><iframe src="https://streamable.com/e/w0zln2" frameborder="0" width="100%" height="100%" allowfullscreen="" style="width: 100%; height: 100%; position: absolute;"></iframe></div>
+	<span class="n">ULONG_PTR</span> <span class="n">args</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">(</span><span class="n">ULONG_PTR</span><span class="p">)</span><span class="o">&amp;</span><span class="n">uText</span><span class="p">,</span> <span class="p">(</span><span class="n">ULONG_PTR</span><span class="p">)</span><span class="o">&amp;</span><span class="n">uTitle</span><span class="p">,</span> <span class="n">type</span> <span class="p">};</span>
+	<span class="n">ULONG</span> <span class="n">response</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<h2 id="conclusion"><span class="mr-2">Conclusion</span><a href="#conclusion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+	<span class="n">ExRaiseHardError</span><span class="p">(</span><span class="n">STATUS_SERVICE_NOTIFICATION</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">response</span><span class="p">);</span>
+	<span class="k">return</span> <span class="n">response</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
 
-<p>I hope you gained some knowledge from this post. I also hope I was able to raise your interest in reverse engineering if you are a beginner.</p>
+<p>Usage example:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="code-header">
+        <span data-label-text="Cpp"><i class="fas fa-code small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="cp">#define MB_OK 0x00000000L
+</span><span class="n">ULONG</span> <span class="n">result</span> <span class="o">=</span> <span class="n">KeMessageBox</span><span class="p">(</span><span class="s">L"Hello world!"</span><span class="p">,</span> <span class="s">L"Greetings from kernel-mode"</span><span class="p">,</span> <span class="n">MB_OK</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>The result is the enum containing all possible results:</p>
+<div class="language-cpp highlighter-rouge"><div class="code-header">
+        <span data-label-text="Cpp"><i class="fas fa-code small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">enum</span> <span class="n">_HARDERROR_RESPONSE</span>
+<span class="p">{</span>
+    <span class="n">ResponseReturnToCaller</span><span class="p">,</span>
+    <span class="n">ResponseNotHandled</span><span class="p">,</span>
+    <span class="n">ResponseAbort</span><span class="p">,</span>
+    <span class="n">ResponseCancel</span><span class="p">,</span>
+    <span class="n">ResponseIgnore</span><span class="p">,</span>
+    <span class="n">ResponseNo</span><span class="p">,</span>
+    <span class="n">ResponseOk</span><span class="p">,</span>
+    <span class="n">ResponseRetry</span><span class="p">,</span>
+    <span class="n">ResponseYes</span><span class="p">,</span>
+    <span class="n">ResponseTryAgain</span><span class="p">,</span>
+    <span class="n">ResponseContinue</span>
+<span class="p">}</span> <span class="n">HARDERROR_RESPONSE</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></div></div>
 
 </div>
 
@@ -826,7 +702,7 @@ Those 3 values are stored as global variables.</p>
   <div class="post-meta mb-3">
     <i class="far fa-folder-open fa-fw mr-1"></i>
     
-      <a href='/categories/reverse-engineering/'>Reverse Engineering</a>
+      <a href='/categories/kernel-development/'>Kernel Development</a>
   </div>
   
 
@@ -837,6 +713,9 @@ Those 3 values are stored as global variables.</p>
       
       <a href="/tags/native/"
           class="post-tag no-text-decoration" >native</a>
+      
+      <a href="/tags/kernel/"
+          class="post-tag no-text-decoration" >kernel</a>
       
       <a href="/tags/windows/"
           class="post-tag no-text-decoration" >windows</a>
@@ -876,19 +755,19 @@ Those 3 values are stored as global variables.</p>
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=Reverse engineering Task Manager - VollRagm&amp;url=https://vollragm.github.io/posts/TaskManager/" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=Showing a MessageBox from kernel-mode - VollRagm&amp;url=https://vollragm.github.io/posts/kernel-message-box/" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=Reverse engineering Task Manager - VollRagm&amp;u=https://vollragm.github.io/posts/TaskManager/" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=Showing a MessageBox from kernel-mode - VollRagm&amp;u=https://vollragm.github.io/posts/kernel-message-box/" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=https://vollragm.github.io/posts/TaskManager/&amp;text=Reverse engineering Task Manager - VollRagm" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=https://vollragm.github.io/posts/kernel-message-box/&amp;text=Showing a MessageBox from kernel-mode - VollRagm" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -1050,6 +929,16 @@ Those 3 values are stored as global variables.</p>
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1060,23 +949,9 @@ Those 3 values are stored as global variables.</p>
     
     
       
-    
-  
-    
-    
-    
-    
-      
         
         
 
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1110,13 +985,13 @@ Those 3 values are stored as global variables.</p>
       <a class="post-tag" href="/tags/windows/">windows</a>
     
       
+      <a class="post-tag" href="/tags/kernel/">kernel</a>
+    
+      
       <a class="post-tag" href="/tags/net/">.net</a>
     
       
       <a class="post-tag" href="/tags/game-hacking/">game hacking</a>
-    
-      
-      <a class="post-tag" href="/tags/kernel/">kernel</a>
     
 
     </div>
@@ -1175,46 +1050,59 @@ Those 3 values are stored as global variables.</p>
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
   
 
   
@@ -1262,7 +1150,42 @@ Those 3 values are stored as global variables.</p>
       
       
       <div class="card">
-        <a href="/posts/Minesweeper/">
+        <a href="/posts/task-manager/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/timeago.js
+-->
+
+<em class="timeago small"
+    data-ts="1649025540"
+    
+    >
+  2022-04-04
+</em>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Reverse engineering Task Manager</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                Introduction
+Some time ago I spent some time reversing Task Manager for fun and practice.
+I will share my findings in this blog post. Note that most of the things in this post might not be interest...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
+        <a href="/posts/minesweeper/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1297,7 +1220,7 @@ This blog post is about how to approach reverse engineering using the Windows 7 
       
       
       <div class="card">
-        <a href="/posts/KernelSharp/">
+        <a href="/posts/kernelsharp/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1329,44 +1252,6 @@ Now, you might be thinking that something like this would be totally foolish and
         </a>
       </div>
     
-      
-      
-      <div class="card">
-        <a href="/posts/PTView/">
-          <div class="card-body">
-            <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/timeago.js
--->
-
-<em class="timeago small"
-    data-ts="1649025540"
-    
-    >
-  2022-04-04
-</em>
-
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>PTView - Browse Page Tables on Windows</h3>
-            <div class="text-muted small">
-              <p>
-                
-
-
-
-
-
-                Introduction
-
-Page Tables can be a complicated concept to understand.
-This is why I created PTView. You can use this tool to visualize page tables and be able to browse them.
-
-It allows you to insp...
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-    
     </div> <!-- .card-deck -->
   </div> <!-- #related-posts -->
 
@@ -1379,17 +1264,17 @@ It allows you to insp...
 
 <div class="post-navigation d-flex justify-content-between">
   
-  <a href="/posts/PTView/" class="btn btn-outline-primary"
+  <a href="/posts/unity-reversing/" class="btn btn-outline-primary"
     prompt="Older">
-    <p>PTView - Browse Page Tables on Windows</p>
+    <p>Unity Engine reversing and hacking</p>
   </a>
   
 
   
-  <a href="/posts/WebAPI/" class="btn btn-outline-primary"
+  <span class="btn btn-outline-primary disabled"
     prompt="Newer">
-    <p>Reverse engineering a Web API</p>
-  </a>
+    <p>-</p>
+  </span>
   
 
 </div>
@@ -1564,6 +1449,16 @@ It allows you to insp...
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1574,23 +1469,9 @@ It allows you to insp...
     
     
       
-    
-  
-    
-    
-    
-    
-      
         
         
 
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1624,13 +1505,13 @@ It allows you to insp...
       <a class="post-tag" href="/tags/windows/">windows</a>
     
       
+      <a class="post-tag" href="/tags/kernel/">kernel</a>
+    
+      
       <a class="post-tag" href="/tags/net/">.net</a>
     
       
       <a class="post-tag" href="/tags/game-hacking/">game hacking</a>
-    
-      
-      <a class="post-tag" href="/tags/kernel/">kernel</a>
     
 
     </div>

@@ -4,7 +4,7 @@
   <id>https://vollragm.github.io/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-05T02:03:53+02:00</updated>
+  <updated>2022-04-05T16:50:04+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>https://vollragm.github.io/</uri>
@@ -20,14 +20,49 @@
 
   
   <entry>
+    <title>Showing a MessageBox from kernel-mode</title>
+    <link href="https://vollragm.github.io/posts/kernel-message-box/" rel="alternate" type="text/html" title="Showing a MessageBox from kernel-mode" />
+    <published>2022-04-05T14:44:00+02:00</published>
+  
+    <updated>2022-04-05T14:44:00+02:00</updated>
+  
+    <id>https://vollragm.github.io/posts/kernel-message-box/</id>
+    <content src="https://vollragm.github.io/posts/kernel-message-box/" />
+    <author>
+      <name>VollRagm</name>
+    </author>
+
+  
+    
+    <category term="Kernel Development" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Introduction
+Message boxes provide a simple way to show feedback to the user. In user-mode a message box can be shown with the MessageBoxW API function. However, this API does not exist in kernel-mode. One of the common ways to display info from kernel-mode is the DbgPrint API, which can be listened to from DbgView or an attached Kernel debugger. Recently I wanted to display a message box from ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>Unity Engine reversing and hacking</title>
-    <link href="https://vollragm.github.io/posts/UnityEngine/" rel="alternate" type="text/html" title="Unity Engine reversing and hacking" />
+    <link href="https://vollragm.github.io/posts/unity-reversing/" rel="alternate" type="text/html" title="Unity Engine reversing and hacking" />
     <published>2022-04-04T23:41:00+02:00</published>
   
     <updated>2022-04-04T23:41:00+02:00</updated>
   
-    <id>https://vollragm.github.io/posts/UnityEngine/</id>
-    <content src="https://vollragm.github.io/posts/UnityEngine/" />
+    <id>https://vollragm.github.io/posts/unity-reversing/</id>
+    <content src="https://vollragm.github.io/posts/unity-reversing/" />
     <author>
       <name>VollRagm</name>
     </author>
@@ -57,13 +92,13 @@ We are also able to easily inject our dependencies and even reference the...
   
   <entry>
     <title>Reverse Engineering Windows 7 Minesweeper</title>
-    <link href="https://vollragm.github.io/posts/Minesweeper/" rel="alternate" type="text/html" title="Reverse Engineering Windows 7 Minesweeper" />
+    <link href="https://vollragm.github.io/posts/minesweeper/" rel="alternate" type="text/html" title="Reverse Engineering Windows 7 Minesweeper" />
     <published>2022-04-04T22:23:00+02:00</published>
   
     <updated>2022-04-04T22:23:00+02:00</updated>
   
-    <id>https://vollragm.github.io/posts/Minesweeper/</id>
-    <content src="https://vollragm.github.io/posts/Minesweeper/" />
+    <id>https://vollragm.github.io/posts/minesweeper/</id>
+    <content src="https://vollragm.github.io/posts/minesweeper/" />
     <author>
       <name>VollRagm</name>
     </author>
@@ -99,13 +134,13 @@ This post is written for beginners, however, I recommend having the following al
   
   <entry>
     <title>Reverse engineering a Web API</title>
-    <link href="https://vollragm.github.io/posts/WebAPI/" rel="alternate" type="text/html" title="Reverse engineering a Web API" />
+    <link href="https://vollragm.github.io/posts/web-api/" rel="alternate" type="text/html" title="Reverse engineering a Web API" />
     <published>2022-04-04T01:34:00+02:00</published>
   
     <updated>2022-04-04T01:34:00+02:00</updated>
   
-    <id>https://vollragm.github.io/posts/WebAPI/</id>
-    <content src="https://vollragm.github.io/posts/WebAPI/" />
+    <id>https://vollragm.github.io/posts/web-api/</id>
+    <content src="https://vollragm.github.io/posts/web-api/" />
     <author>
       <name>VollRagm</name>
     </author>
@@ -135,13 +170,13 @@ Some people in the gaming community scan a game’s username database for certai
   
   <entry>
     <title>Reverse engineering Task Manager</title>
-    <link href="https://vollragm.github.io/posts/TaskManager/" rel="alternate" type="text/html" title="Reverse engineering Task Manager" />
+    <link href="https://vollragm.github.io/posts/task-manager/" rel="alternate" type="text/html" title="Reverse engineering Task Manager" />
     <published>2022-04-04T00:39:00+02:00</published>
   
     <updated>2022-04-04T00:39:00+02:00</updated>
   
-    <id>https://vollragm.github.io/posts/TaskManager/</id>
-    <content src="https://vollragm.github.io/posts/TaskManager/" />
+    <id>https://vollragm.github.io/posts/task-manager/</id>
+    <content src="https://vollragm.github.io/posts/task-manager/" />
     <author>
       <name>VollRagm</name>
     </author>
@@ -166,46 +201,6 @@ I will share my findings in this blog post. Note that most of the things in this
 
 The Performance Tab
 At first, I took a look at the Performance tab, because it seemed like an obvious t...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>PTView - Browse Page Tables on Windows</title>
-    <link href="https://vollragm.github.io/posts/PTView/" rel="alternate" type="text/html" title="PTView - Browse Page Tables on Windows" />
-    <published>2022-04-04T00:39:00+02:00</published>
-  
-    <updated>2022-04-04T00:39:00+02:00</updated>
-  
-    <id>https://vollragm.github.io/posts/PTView/</id>
-    <content src="https://vollragm.github.io/posts/PTView/" />
-    <author>
-      <name>VollRagm</name>
-    </author>
-
-  
-    
-    <category term="Kernel Development" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Introduction
-
-Page Tables can be a complicated concept to understand.
-This is why I created PTView. You can use this tool to visualize page tables and be able to browse them.
-
-It allows you to inspect a Windows processes Page Tables live.
-You can browse through them in a GUI and dump the physical pages they point to, as well as translate virtual to physical addresses and get the virtual address...
     </summary>
   
 
