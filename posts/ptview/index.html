@@ -640,8 +640,9 @@ After opening the client, select a process and start browsing its page tables!</
 <p><strong>1. Dump the PML4 itself over its auto-entry (self-reference):</strong><br />
 Every PML4 keeps an entry that has the PML4’s address as PFN itself. This entry is at a fixed index, that Windows nowadays sets randomly during boot.
 If this entry is selected, the PDPT is the PML4 itself again. If you select it in the PDPT again, the PD also is the PML4 again. If you continue that until the end, the PT will be the PML4, and you will be able to use the PML4 auto-entry to dump the PML4 itself or get its virtual address.
-Note that this address only is valid in the selected processes context.
-<img data-src="https://i.imgur.com/qUI7WDO.png" alt="" data-proofer-ignore></p>
+Note that this address only is valid in the selected processes context.</p>
+
+<p><img data-src="https://i.imgur.com/qUI7WDO.png" alt="" data-proofer-ignore></p>
 
 <p><strong>2. Watch Windows Memory manager map pages, that have been paged out to disk:</strong><br />
 Get the virtual address of an unused loaded module in the process. Enter it in the Virtual Address textbox and translate it.
@@ -770,6 +771,16 @@ Now access the virtual address using a Debugger or Memory viewer, like Cheat Eng
   <div id="access-lastmod" class="post">
     <div class="panel-heading">Recently Updated</div>
     <ul class="post-content pl-0 pb-1 ml-1 mt-2">
+      
+        
+        
+        
+      <li><a href="/posts/minesweeper/">Reverse engineering Windows 7 Minesweeper</a></li>
+      
+        
+        
+        
+      <li><a href="/posts/web-api/">Reverse engineering a Web API</a></li>
       
         
         

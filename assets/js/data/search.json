@@ -76,7 +76,7 @@
   },
   
   {
-    "title": "Reverse Engineering Windows 7 Minesweeper",
+    "title": "Reverse engineering Windows 7 Minesweeper",
     "url": "/posts/minesweeper/",
     "categories": "Reverse Engineering",
     "tags": "native, windows, reversing, game hacking",

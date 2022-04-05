@@ -52,7 +52,7 @@
 <meta property="twitter:title" content="Showing a MessageBox from kernel-mode" />
 <meta name="twitter:site" content="@vollragm" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-05T16:51:57+02:00","datePublished":"2022-04-05T14:44:00+02:00","description":"Introduction Message boxes provide a simple way to show feedback to the user. In user-mode, a message box can be shown with the MessageBoxW API function. However, this API does not exist in kernel-mode. One of the common ways to display info from kernel-mode is the DbgPrint API, which can be listened to from DbgView or an attached Kernel debugger. Recently I wanted to display a message box from kernel-mode though, so the user can receive feedback easily. There already are sources on how it’s done out on the web, but I want to take you through the inner workings of the MessageBox function itself and add more information to it.","headline":"Showing a MessageBox from kernel-mode","mainEntityOfPage":{"@type":"WebPage","@id":"https://vollragm.github.io/posts/kernel-message-box/"},"url":"https://vollragm.github.io/posts/kernel-message-box/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-05T18:13:04+02:00","datePublished":"2022-04-05T14:44:00+02:00","description":"Introduction Message boxes provide a simple way to show feedback to the user. In user-mode, a message box can be shown with the MessageBoxW API function. However, this API does not exist in kernel-mode. One of the common ways to display info from kernel-mode is the DbgPrint API, which can be listened to from DbgView or an attached Kernel debugger. Recently I wanted to display a message box from kernel-mode though, so the user can receive feedback easily. There already are sources on how it’s done out on the web, but I want to take you through the inner workings of the MessageBox function itself and add more information to it.","headline":"Showing a MessageBox from kernel-mode","mainEntityOfPage":{"@type":"WebPage","@id":"https://vollragm.github.io/posts/kernel-message-box/"},"url":"https://vollragm.github.io/posts/kernel-message-box/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -543,7 +543,7 @@
 -->
 
 <em class="timeago"
-    data-ts="1649170317"
+    data-ts="1649175184"
     
       data-toggle="tooltip" data-placement="bottom" data-tooltip-df="llll"
     
@@ -836,6 +836,16 @@ Furthermore, the first bit in <code class="language-plaintext highlighter-rouge"
   <div id="access-lastmod" class="post">
     <div class="panel-heading">Recently Updated</div>
     <ul class="post-content pl-0 pb-1 ml-1 mt-2">
+      
+        
+        
+        
+      <li><a href="/posts/minesweeper/">Reverse engineering Windows 7 Minesweeper</a></li>
+      
+        
+        
+        
+      <li><a href="/posts/web-api/">Reverse engineering a Web API</a></li>
       
         
         
@@ -1231,7 +1241,7 @@ I will share my findings in this blog post. Note that most of the things in this
   2022-04-04
 </em>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Reverse Engineering Windows 7 Minesweeper</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Reverse engineering Windows 7 Minesweeper</h3>
             <div class="text-muted small">
               <p>
                 

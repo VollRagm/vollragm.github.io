@@ -52,7 +52,7 @@
 <meta property="twitter:title" content="Reverse engineering a Web API" />
 <meta name="twitter:site" content="@vollragm" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-04T22:34:00+02:00","datePublished":"2022-04-04T22:34:00+02:00","description":"Introduction Most websites or web services have an API in the backend that delivers requested data to its frontend. This can be anything from the Google Search API to delivering a message on Discord. Some people in the gaming community scan a game’s username database for certain available special names, like 3 letter names, to register them. I’ve been asked to write a tool to automate that. To do that I had to reverse engineer the R6DB API. I then could use that API to check for available usernames programmatically. This API has shut down since, likely due to abuse. The method I’m going to show also works on Electron Apps such as Discord by bringing up the DevTools. For any other app, you can use something like Fiddler to intercept the web requests.","headline":"Reverse engineering a Web API","mainEntityOfPage":{"@type":"WebPage","@id":"https://vollragm.github.io/posts/web-api/"},"url":"https://vollragm.github.io/posts/web-api/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-05T18:13:04+02:00","datePublished":"2022-04-04T22:34:00+02:00","description":"Introduction Most websites or web services have an API in the backend that delivers requested data to its frontend. This can be anything from the Google Search API to delivering a message on Discord. Some people in the gaming community scan a game’s username database for certain available special names, like 3 letter names, to register them. I’ve been asked to write a tool to automate that. To do that I had to reverse engineer the R6DB API. I then could use that API to check for available usernames programmatically. This API has shut down since, likely due to abuse. The method I’m going to show also works on Electron Apps such as Discord by bringing up the DevTools. For any other app, you can use something like Fiddler to intercept the web requests.","headline":"Reverse engineering a Web API","mainEntityOfPage":{"@type":"WebPage","@id":"https://vollragm.github.io/posts/web-api/"},"url":"https://vollragm.github.io/posts/web-api/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1199,6 +1199,24 @@
 
       <!-- lastmod date -->
       
+      <span>
+        Updated
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/timeago.js
+-->
+
+<em class="timeago"
+    data-ts="1649175184"
+    
+      data-toggle="tooltip" data-placement="bottom" data-tooltip-df="llll"
+    
+    >
+  2022-04-05
+</em>
+
+      </span>
+      
 
       <!-- read time -->
       <!--
@@ -1599,6 +1617,16 @@ This entire API Key was to prevent spam. One of this websites authors even <a hr
   <div id="access-lastmod" class="post">
     <div class="panel-heading">Recently Updated</div>
     <ul class="post-content pl-0 pb-1 ml-1 mt-2">
+      
+        
+        
+        
+      <li><a href="/posts/minesweeper/">Reverse engineering Windows 7 Minesweeper</a></li>
+      
+        
+        
+        
+      <li><a href="/posts/web-api/">Reverse engineering a Web API</a></li>
       
         
         
@@ -2028,7 +2056,7 @@ I will share my findings in this blog post. Note that most of the things in this
   2022-04-04
 </em>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Reverse Engineering Windows 7 Minesweeper</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Reverse engineering Windows 7 Minesweeper</h3>
             <div class="text-muted small">
               <p>
                 
@@ -2060,7 +2088,7 @@ This blog post is about how to approach reverse engineering using the Windows 7 
   
   <a href="/posts/minesweeper/" class="btn btn-outline-primary"
     prompt="Older">
-    <p>Reverse Engineering Windows 7 Minesweeper</p>
+    <p>Reverse engineering Windows 7 Minesweeper</p>
   </a>
   
 

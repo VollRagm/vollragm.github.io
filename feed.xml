@@ -4,7 +4,7 @@
   <id>https://vollragm.github.io/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-05T18:08:07+02:00</updated>
+  <updated>2022-04-05T21:14:04+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>https://vollragm.github.io/</uri>
@@ -24,7 +24,7 @@
     <link href="https://vollragm.github.io/posts/kernel-message-box/" rel="alternate" type="text/html" title="Showing a MessageBox from kernel-mode" />
     <published>2022-04-05T14:44:00+02:00</published>
   
-    <updated>2022-04-05T16:51:57+02:00</updated>
+    <updated>2022-04-05T18:13:04+02:00</updated>
   
     <id>https://vollragm.github.io/posts/kernel-message-box/</id>
     <content src="https://vollragm.github.io/posts/kernel-message-box/" />
@@ -176,7 +176,7 @@ We are also able to easily inject our dependencies and even reference the...
     <link href="https://vollragm.github.io/posts/web-api/" rel="alternate" type="text/html" title="Reverse engineering a Web API" />
     <published>2022-04-04T22:34:00+02:00</published>
   
-    <updated>2022-04-04T22:34:00+02:00</updated>
+    <updated>2022-04-05T18:13:04+02:00</updated>
   
     <id>https://vollragm.github.io/posts/web-api/</id>
     <content src="https://vollragm.github.io/posts/web-api/" />
