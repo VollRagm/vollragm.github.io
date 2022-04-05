@@ -4,7 +4,7 @@
   <id>https://vollragm.github.io/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-05T17:16:56+02:00</updated>
+  <updated>2022-04-05T18:06:13+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>https://vollragm.github.io/</uri>
@@ -55,6 +55,87 @@ Message boxes provide a simple way to show feedback to the user. In user-mode, a
 
   
   <entry>
+    <title>PTView - Browse Page Tables on Windows</title>
+    <link href="https://vollragm.github.io/posts/ptview/" rel="alternate" type="text/html" title="PTView - Browse Page Tables on Windows" />
+    <published>2022-04-04T23:58:00+02:00</published>
+  
+    <updated>2022-04-04T23:58:00+02:00</updated>
+  
+    <id>https://vollragm.github.io/posts/ptview/</id>
+    <content src="https://vollragm.github.io/posts/ptview/" />
+    <author>
+      <name>VollRagm</name>
+    </author>
+
+  
+    
+    <category term="Kernel Development" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Introduction
+
+Page Tables can be a complicated concept to understand.
+This is why I created PTView. You can use this tool to visualize page tables and be able to browse them.
+
+It allows you to inspect a Windows processes Page Tables live.
+You can browse through them in a GUI and dump the physical pages they point to, as well as translate virtual to physical addresses and get the virtual address...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>KernelSharp - Write Kernel Drivers in C#</title>
+    <link href="https://vollragm.github.io/posts/kernelsharp/" rel="alternate" type="text/html" title="KernelSharp - Write Kernel Drivers in C#" />
+    <published>2022-04-04T23:56:00+02:00</published>
+  
+    <updated>2022-04-04T23:56:00+02:00</updated>
+  
+    <id>https://vollragm.github.io/posts/kernelsharp/</id>
+    <content src="https://vollragm.github.io/posts/kernelsharp/" />
+    <author>
+      <name>VollRagm</name>
+    </author>
+
+  
+    
+    <category term="Kernel Development" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Introduction
+In the past, people asked me if it was possible to write a kernel-mode Driver for Windows in C#.
+Now, you might be thinking that something like this would be totally foolish and serve no purpose.
+Let me tell you one thing: You are totally right about that.
+But after getting asked this question multiple times, I have decided to make it possible.
+
+.NET in Kernel-mode?
+There are sever...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>Unity Engine reversing and hacking</title>
     <link href="https://vollragm.github.io/posts/unity-reversing/" rel="alternate" type="text/html" title="Unity Engine reversing and hacking" />
     <published>2022-04-04T23:41:00+02:00</published>
@@ -91,53 +172,11 @@ We are also able to easily inject our dependencies and even reference the...
 
   
   <entry>
-    <title>Reverse Engineering Windows 7 Minesweeper</title>
-    <link href="https://vollragm.github.io/posts/minesweeper/" rel="alternate" type="text/html" title="Reverse Engineering Windows 7 Minesweeper" />
-    <published>2022-04-04T22:23:00+02:00</published>
-  
-    <updated>2022-04-04T22:23:00+02:00</updated>
-  
-    <id>https://vollragm.github.io/posts/minesweeper/</id>
-    <content src="https://vollragm.github.io/posts/minesweeper/" />
-    <author>
-      <name>VollRagm</name>
-    </author>
-
-  
-    
-    <category term="Reverse Engineering" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Introduction
-
-This blog post is about how to approach reverse engineering using the Windows 7 version of Minesweeper as an example. You can get the Windows 7 Minesweeper from https://win7games.com/.
-
-I have created a trainer and a CheatEngine cheat table as well. You can find it here.
-
-This post is written for beginners, however, I recommend having the following already:
-
-  Basic understanding ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
     <title>Reverse engineering a Web API</title>
     <link href="https://vollragm.github.io/posts/web-api/" rel="alternate" type="text/html" title="Reverse engineering a Web API" />
-    <published>2022-04-04T01:34:00+02:00</published>
+    <published>2022-04-04T22:34:00+02:00</published>
   
-    <updated>2022-04-04T01:34:00+02:00</updated>
+    <updated>2022-04-04T22:34:00+02:00</updated>
   
     <id>https://vollragm.github.io/posts/web-api/</id>
     <content src="https://vollragm.github.io/posts/web-api/" />
@@ -162,45 +201,6 @@ This post is written for beginners, however, I recommend having the following al
       Introduction
 Most websites or web services have an API in the backend that delivers requested data to its frontend. This can be anything from the Google Search API to delivering a message on Discord.
 Some people in the gaming community scan a game’s username database for certain available special names, like 3 letter names, to register them. I’ve been asked to write a tool to automate that. To ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Reverse engineering Task Manager</title>
-    <link href="https://vollragm.github.io/posts/task-manager/" rel="alternate" type="text/html" title="Reverse engineering Task Manager" />
-    <published>2022-04-04T00:39:00+02:00</published>
-  
-    <updated>2022-04-04T00:39:00+02:00</updated>
-  
-    <id>https://vollragm.github.io/posts/task-manager/</id>
-    <content src="https://vollragm.github.io/posts/task-manager/" />
-    <author>
-      <name>VollRagm</name>
-    </author>
-
-  
-    
-    <category term="Reverse Engineering" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Introduction
-Some time ago I spent some time reversing Task Manager for fun and practice.
-I will share my findings in this blog post. Note that most of the things in this post might not be interesting and only are here to assist beginners in getting the right mindset for reverse engineering.
-
-The Performance Tab
-At first, I took a look at the Performance tab, because it seemed like an obvious t...
     </summary>
   
 
