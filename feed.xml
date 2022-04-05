@@ -4,7 +4,7 @@
   <id>https://vollragm.github.io/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-05T16:50:04+02:00</updated>
+  <updated>2022-04-05T16:51:50+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>https://vollragm.github.io/</uri>
@@ -47,7 +47,7 @@
 
 
       Introduction
-Message boxes provide a simple way to show feedback to the user. In user-mode a message box can be shown with the MessageBoxW API function. However, this API does not exist in kernel-mode. One of the common ways to display info from kernel-mode is the DbgPrint API, which can be listened to from DbgView or an attached Kernel debugger. Recently I wanted to display a message box from ...
+Message boxes provide a simple way to show feedback to the user. In user-mode, a message box can be shown with the MessageBoxW API function. However, this API does not exist in kernel-mode. One of the common ways to display info from kernel-mode is the DbgPrint API, which can be listened to from DbgView or an attached Kernel debugger. Recently I wanted to display a message box from...
     </summary>
   
 
