@@ -597,6 +597,18 @@
       
 
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
 
     
 
@@ -776,7 +788,7 @@
 
 <!-- return element -->
 <span class="readtime" data-toggle="tooltip" data-placement="bottom"
-  title="3210 words">
+  title="3233 words">
   <em>17 min</em> read</span>
 
 
@@ -809,9 +821,9 @@ A common page table structure looks something like this:</p>
 
 <p><img data-src="https://imgur.com/nEfkFvj.png" alt="" data-proofer-ignore></p>
 
-<p>As you can see in this image, a Page Table (PT) can hold up to 512 Page Table Entries (PTEs). With each page having a size of 4096 bytes, this means a single page table can address 2 megabytes of physical memory. This is where large pages come into play. The 7th bit of PDPT-entries and PD-entries, which is called <code class="language-plaintext highlighter-rouge">PageSize</code> is used to determine, whether this page table entry points to another Page table or an entire physical page with the size the page table would map.</p>
+<p>As you can see in this image, a Page Table (PT) can hold up to 512 Page Table Entries (PTEs). With each page having a size of 4096 bytes, this means the last page table addresses 2 megabytes (512 * 4096) of physical memory. This is where large pages come into play. Large pages are a feature exclusively supported by x64 processors. The 7th bit of PDPT-entries and PD-entries, which is called <code class="language-plaintext highlighter-rouge">PageSize</code> is used to determine, whether this page table entry points to another Page table or an entire physical page with the size the page table would map.</p>
 
-<p>For example, if the <code class="language-plaintext highlighter-rouge">PageSize</code> bit is set on a Page-directory entry (PDE), the page frame number of this entry points to a full contiguous physical 2 megabyte page instead of pointing to another page table. This also technically makes the PDE a PTE. The R/W and NX bits of the PTE decide whether the page is writable or executable. These properties apply to the <strong>entire page</strong>, which means that for normal pages, the smallest protection region you can modify is 4 kilobytes (4096 bytes). For a large page, it is 2 megabytes (512 * 4096 bytes) and for huge pages, it’s 1 gigabyte (512 * 512 * 4096 bytes).</p>
+<p>For example, if the <code class="language-plaintext highlighter-rouge">PageSize</code> bit is set on a Page-directory entry (PDE), the page frame number of this entry points to a full contiguous physical 2 megabyte page instead of pointing to another page table. The R/W and NX bits of the PTE decide whether the page is writable or executable. These properties apply to the <strong>entire page</strong>, which means that for normal pages, the smallest protection region you can modify is 4 kilobytes (4096 bytes). For a large page, it is 2 megabytes (512 * 4096 bytes) and for huge pages, it’s 1 gigabyte (512 * 512 * 4096 bytes).</p>
 
 <p>This aspect is going to become important later.</p>
 
@@ -1358,7 +1370,7 @@ Such a check could look something like this:</p>
 </pre></td></tr></tbody></table></code></div></div>
 
 <p>The most common anti-cheats have been doing this for ages.<br />
-The EAC-Reversing repository <a href="https://github.com/adrianyy/EACReversing/blob/20fea8ae5f783394e13aad1a1b358f787db7fe71/EasyAntiCheat.sys/dispatchhook.c#L1"></a> showcases how EasyAntiCheat was doing it back in 2019 at least.</p>
+The <a href="https://github.com/adrianyy/EACReversing/blob/20fea8ae5f783394e13aad1a1b358f787db7fe71/EasyAntiCheat.sys/dispatchhook.c#L1">EAC-Reversing repository</a> showcases how EasyAntiCheat was doing it back in 2019 at least.</p>
 
 <p>For BattlEye I have analyzed the recently released full <a href="https://www.unknowncheats.me/forum/anti-cheat-bypass/489381-bedaisy-sys-devirtualized.html">bedaisy.sys dump</a> posted on unknowncheats.me by anypot.</p>
 
@@ -1411,6 +1423,17 @@ This could lead to a potential detection if the anti-cheat finds your thread exe
 <p>It has been a pleasure researching this feature. I highly recommend you to read through <a href="https://www.microsoftpressstore.com/store/windows-internals-part-1-system-architecture-processes-9780735684188">Windows Internals Part 1</a> as it is a good book and can spark a few ideas.</p>
 
 <p>If you found a mistake in this post or noticed a critical fact that I missed, please contact me over Discord, Twitter, or any channel you find. I highly appreciate any critical feedback I can get.</p>
+
+<h2 id="sources-and-links"><span class="mr-2">Sources and Links</span><a href="#sources-and-links" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+
+<ul>
+  <li><a href="https://www.microsoftpressstore.com/store/windows-internals-part-1-system-architecture-processes-9780735684188">Windows Internals Part 1</a></li>
+  <li><a href="https://www.unknowncheats.me/forum/anti-cheat-bypass/489381-bedaisy-sys-devirtualized.html">bedaisy.sys devirtualized</a></li>
+  <li><a href="https://github.com/adrianyy/EACReversing/">EAC-Reversing</a></li>
+  <li><a href="https://github.com/TheCruZ/kdmapper">kdmapper</a></li>
+  <li><a href="https://back.engineering/23/08/2020/">Virtual Memory - Intro to Paging Tables</a></li>
+  <li><a href="https://twitter.com/daax_rynd">daax</a></li>
+</ul>
 
 </div>
 
