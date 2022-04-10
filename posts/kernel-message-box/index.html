@@ -840,6 +840,11 @@ Furthermore, the first bit in <code class="language-plaintext highlighter-rouge"
         
         
         
+      <li><a href="/posts/abusing-large-page-drivers/">Abusing LargePageDrivers to copy shellcode into valid kernel modules</a></li>
+      
+        
+        
+        
       <li><a href="/posts/minesweeper/">Reverse engineering Windows 7 Minesweeper</a></li>
       
         
@@ -1092,6 +1097,19 @@ Furthermore, the first bit in <code class="language-plaintext highlighter-rouge"
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
     
   
 
@@ -1192,6 +1210,41 @@ Furthermore, the first bit in <code class="language-plaintext highlighter-rouge"
       
       
       <div class="card">
+        <a href="/posts/abusing-large-page-drivers/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/timeago.js
+-->
+
+<em class="timeago small"
+    data-ts="1649625960"
+    
+    >
+  2022-04-10
+</em>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Abusing LargePageDrivers to copy shellcode into valid kernel modules</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                Introduction
+Most people in the game hacking community write their kernel-mode drivers to get around kernel-level anti-cheats such as EasyAntiCheat.
+However, those anti-cheats have several methods ...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
         <a href="/posts/task-manager/">
           <div class="card-body">
             <!--
@@ -1259,41 +1312,6 @@ This blog post is about how to approach reverse engineering using the Windows 7 
         </a>
       </div>
     
-      
-      
-      <div class="card">
-        <a href="/posts/kernelsharp/">
-          <div class="card-body">
-            <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/timeago.js
--->
-
-<em class="timeago small"
-    data-ts="1649109360"
-    
-    >
-  2022-04-04
-</em>
-
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>KernelSharp - Write Kernel Drivers in C#</h3>
-            <div class="text-muted small">
-              <p>
-                
-
-
-
-
-
-                Introduction
-In the past, people asked me if it was possible to write a kernel-mode Driver for Windows in C#.
-Now, you might be thinking that something like this would be totally foolish and serve ...
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-    
     </div> <!-- .card-deck -->
   </div> <!-- #related-posts -->
 
@@ -1313,10 +1331,10 @@ Now, you might be thinking that something like this would be totally foolish and
   
 
   
-  <span class="btn btn-outline-primary disabled"
+  <a href="/posts/abusing-large-page-drivers/" class="btn btn-outline-primary"
     prompt="Newer">
-    <p>-</p>
-  </span>
+    <p>Abusing LargePageDrivers to copy shellcode into valid kernel modules</p>
+  </a>
   
 
 </div>

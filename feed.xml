@@ -4,7 +4,7 @@
   <id>https://vollragm.github.io/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-07T22:54:17+02:00</updated>
+  <updated>2022-04-10T23:51:26+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>https://vollragm.github.io/</uri>
@@ -17,6 +17,42 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Abusing LargePageDrivers to copy shellcode into valid kernel modules</title>
+    <link href="https://vollragm.github.io/posts/abusing-large-page-drivers/" rel="alternate" type="text/html" title="Abusing LargePageDrivers to copy shellcode into valid kernel modules" />
+    <published>2022-04-10T23:26:00+02:00</published>
+  
+    <updated>2022-04-10T23:50:50+02:00</updated>
+  
+    <id>https://vollragm.github.io/posts/abusing-large-page-drivers/</id>
+    <content src="https://vollragm.github.io/posts/abusing-large-page-drivers/" />
+    <author>
+      <name>VollRagm</name>
+    </author>
+
+  
+    
+    <category term="Kernel Development" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Introduction
+Most people in the game hacking community write their kernel-mode drivers to get around kernel-level anti-cheats such as EasyAntiCheat.
+However, those anti-cheats have several methods to detect cheat drivers. The most commonly used way to load the cheat driver is manually mapping it with tools like kdmapper. Unfortunately, manually mapping a driver in this way causes the code to be...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -165,42 +201,6 @@ There are sever...
       Introduction
 Unity3D is a popular game engine used by many games, like Escape from Tarkov, Rust, Fall Guys, Among Us, and many more. The engine uses C# as scripting backend, and by default runs on top of the Mono Runtime. Since C# assemblies get compiled to MSIL, we can easily reverse engineer them using tools like dnSpy.
 We are also able to easily inject our dependencies and even reference the...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Reverse engineering a Web API</title>
-    <link href="https://vollragm.github.io/posts/web-api/" rel="alternate" type="text/html" title="Reverse engineering a Web API" />
-    <published>2022-04-04T22:34:00+02:00</published>
-  
-    <updated>2022-04-05T18:13:04+02:00</updated>
-  
-    <id>https://vollragm.github.io/posts/web-api/</id>
-    <content src="https://vollragm.github.io/posts/web-api/" />
-    <author>
-      <name>VollRagm</name>
-    </author>
-
-  
-    
-    <category term="Reverse Engineering" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Introduction
-Most websites or web services have an API in the backend that delivers requested data to its frontend. This can be anything from the Google Search API to delivering a message on Discord.
-Some people in the gaming community scan a game’s username database for certain available special names, like 3 letter names, to register them. I’ve been asked to write a tool to automate that. To ...
     </summary>
   
 
