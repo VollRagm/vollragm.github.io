@@ -585,6 +585,18 @@
       
 
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
 
     
 
@@ -764,7 +776,7 @@
 
 <!-- return element -->
 <span class="readtime" data-toggle="tooltip" data-placement="bottom"
-  title="3152 words">
+  title="3210 words">
   <em>17 min</em> read</span>
 
 
@@ -1389,7 +1401,11 @@ However, you can easily modify this project to use any third-party driver that d
 
 <h2 id="stack-walking"><span class="mr-2">Stack walking</span><a href="#stack-walking" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
 <p>Stack walking is an often-discussed detection method used by anti-cheats. It works by delivering APCs to all threads, getting their contexts, and checking the return addresses on the stack. Those are then used to determine whether the thread has been executing code outside of a valid module.<br />
-However, in my example, the thread never leaves the beep.sys or ntoskrnl.exe module.</p>
+However, in my example, the thread never leaves the beep.sys or ntoskrnl.exe module. It is running inside of the <code class="language-plaintext highlighter-rouge">.data</code> section however, which could lead to a flag if explicitly checked for.</p>
+
+<h2 id="nmi-callbacks"><span class="mr-2">NMI-Callbacks</span><a href="#nmi-callbacks" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2>
+<p>Similar to stack walking, NMI callbacks interrupt your thread midway and check where and what it is currently executing.
+This could lead to a potential detection if the anti-cheat finds your thread executing inside of the <code class="language-plaintext highlighter-rouge">.data</code> section.</p>
 
 <h1 id="conclusion">Conclusion</h1>
 <p>It has been a pleasure researching this feature. I highly recommend you to read through <a href="https://www.microsoftpressstore.com/store/windows-internals-part-1-system-architecture-processes-9780735684188">Windows Internals Part 1</a> as it is a good book and can spark a few ideas.</p>
