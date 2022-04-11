@@ -883,8 +883,8 @@ I have reverse-engineered the function, the LIST_ENTRY struct, and renamed all v
   <span class="k">if</span> <span class="p">(</span> <span class="n">MapAllDriversIntoLargePages</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span>
   <span class="p">{</span>
       <span class="c1">// Walk the list</span>
-    <span class="k">for</span> <span class="p">(</span> <span class="n">LargePageDriversListEntry</span> <span class="o">=</span> <span class="n">LargePargeDriversList</span><span class="p">;</span>
-          <span class="n">LargePageDriversListEntry</span> <span class="o">!=</span> <span class="o">&amp;</span><span class="n">LargePargeDriversList</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="n">LargePageDriversListEntry</span> <span class="o">=</span> <span class="n">LargePageDriversList</span><span class="p">;</span>
+          <span class="n">LargePageDriversListEntry</span> <span class="o">!=</span> <span class="o">&amp;</span><span class="n">LargePageDriversList</span><span class="p">;</span>
           <span class="n">LargePageDriversListEntry</span> <span class="o">=</span> <span class="n">LargePageDriversListEntry</span><span class="o">-&gt;</span><span class="n">Flink</span> <span class="p">)</span>
     <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span> <span class="n">RtlEqualUnicodeString</span><span class="p">(</span><span class="n">DriverName</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">LargePageDriversListEntry</span><span class="o">-&gt;</span><span class="n">Name</span><span class="p">,</span> <span class="mi">1u</span><span class="p">)</span> <span class="p">)</span>
@@ -896,7 +896,7 @@ I have reverse-engineered the function, the LIST_ENTRY struct, and renamed all v
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>This means, to get a driver to load on a large page during boot we have to make sure it’s in the <code class="language-plaintext highlighter-rouge">LargePargeDriversList</code>. By listing all cross-references in IDA we can find out, that this list is being populated inside of <code class="language-plaintext highlighter-rouge">nt!MiInitializeDriverImages</code> which is eventually getting called from <code class="language-plaintext highlighter-rouge">nt!MiInitSystem</code>.<br />
+<p>This means, to get a driver to load on a large page during boot we have to make sure it’s in the <code class="language-plaintext highlighter-rouge">LargePageDriversList</code>. By listing all cross-references in IDA we can find out, that this list is being populated inside of <code class="language-plaintext highlighter-rouge">nt!MiInitializeDriverImages</code> which is eventually getting called from <code class="language-plaintext highlighter-rouge">nt!MiInitSystem</code>.<br />
 The procedure references the global variable <code class="language-plaintext highlighter-rouge">MmLargePageDriverBuffer</code> from the ntoskrnl <code class="language-plaintext highlighter-rouge">.INIT</code> section. This variable contains the contents of the <code class="language-plaintext highlighter-rouge">HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\LargePageDrivers</code> value from the registry. This value has to be of type multi-string.<br />
 It has to either contain the file names of the drivers separated by null-terminators or a <code class="language-plaintext highlighter-rouge">*</code>, which serves as a wildcard and is going to set the <code class="language-plaintext highlighter-rouge">MapAllDriversIntoLargePages</code> I have defined to true. The decompilation of the function shows how the value is being parsed.</p>
 
@@ -971,8 +971,8 @@ It has to either contain the file names of the drivers separated by null-termina
 67
 68
 69
-</pre></td><td class="rouge-code"><pre><span class="n">FirstLargePageDriverEntry</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">LargePargeDriversList</span><span class="p">;</span>
-<span class="n">LargePargeDriversList</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">LargePargeDriversList</span><span class="p">;</span>
+</pre></td><td class="rouge-code"><pre><span class="n">FirstLargePageDriverEntry</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">LargePageDriversList</span><span class="p">;</span>
+<span class="n">LargePageDriversList</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">LargePageDriversList</span><span class="p">;</span>
 
 <span class="c1">// Skip this part if there are no entries</span>
 <span class="k">if</span> <span class="p">(</span> <span class="n">MmLargePageDriverBufferLength</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span>    
@@ -1024,11 +1024,11 @@ It has to either contain the file names of the drivers separated by null-termina
         <span class="n">NewLargePageDriverEntry</span><span class="o">-&gt;</span><span class="n">Name</span><span class="p">.</span><span class="n">MaximumLength</span> <span class="o">=</span> <span class="n">DriverNameLength</span><span class="p">;</span>
         <span class="n">OldEntry</span> <span class="o">=</span> <span class="n">FirstLargePageDriverEntry</span><span class="p">;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="o">*</span><span class="n">FirstLargePageDriverEntry</span> <span class="o">!=</span> <span class="o">&amp;</span><span class="n">LargePargeDriversList</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">*</span><span class="n">FirstLargePageDriverEntry</span> <span class="o">!=</span> <span class="o">&amp;</span><span class="n">LargePageDriversList</span> <span class="p">)</span>
             <span class="n">__fastfail</span><span class="p">(</span><span class="mi">3u</span><span class="p">);</span>
 
         <span class="c1">// Reassign the list links</span>
-        <span class="n">NewLargePageDriverEntry</span><span class="o">-&gt;</span><span class="n">Flink</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">LargePargeDriversList</span><span class="p">;</span>
+        <span class="n">NewLargePageDriverEntry</span><span class="o">-&gt;</span><span class="n">Flink</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">LargePageDriversList</span><span class="p">;</span>
         <span class="o">*&amp;</span><span class="n">NewLargePageDriverEntry</span><span class="o">-&gt;</span><span class="n">Blink</span> <span class="o">=</span> <span class="n">OldEntry</span><span class="p">;</span>
         <span class="n">whitespaces</span> <span class="o">=</span> <span class="s">"</span><span class="se">\x01\0\0</span><span class="s">&amp;</span><span class="se">\x01</span><span class="s">"</span><span class="p">;</span>
         <span class="o">*</span><span class="n">OldEntry</span> <span class="o">=</span> <span class="n">NewLargePageDriverEntry</span><span class="p">;</span>
