@@ -4,7 +4,7 @@
   <id>https://vollragm.github.io/</id>
   <title>VollRagm</title>
   <subtitle>A blog regarding reverse engineering, game hacking and the Windows operating system</subtitle>
-  <updated>2022-04-11T22:25:34+02:00</updated>
+  <updated>2022-06-01T16:50:22+02:00</updated>
   <author>
     <name>VollRagm</name>
     <uri>https://vollragm.github.io/</uri>
@@ -24,7 +24,7 @@
     <link href="https://vollragm.github.io/posts/abusing-large-page-drivers/" rel="alternate" type="text/html" title="Abusing LargePageDrivers to copy shellcode into valid kernel modules" />
     <published>2022-04-10T23:26:00+02:00</published>
   
-    <updated>2022-04-10T23:50:50+02:00</updated>
+    <updated>2022-04-12T15:46:29+02:00</updated>
   
     <id>https://vollragm.github.io/posts/abusing-large-page-drivers/</id>
     <content src="https://vollragm.github.io/posts/abusing-large-page-drivers/" />
